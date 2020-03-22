@@ -18,12 +18,14 @@ form-factor devices without a reset button, power switch, SWD debugger
 or UART. This allows us to confidently develop on sealed devices relying
 only on BLE for updates.
 
-![wasp-os digital clock app running on PineTime](res/clock_app.jpg)
+Videos
+------
 
-Video
------
+[![Developing for Pine64 PineTime using wasp-os and MicroPython](https://img.youtube.com/vi/kf1VHj587Mc/0.jpg)](https://www.youtube.com/watch?v=kf1VHj587Mc)\
+[Developing for Pine64 PineTime using wasp-os and MicroPython](https://www.youtube.com/watch?v=kf1VHj587Mc)
 
-[![WASP bootloader and MicroPython running on Pine64 PineTime](https://img.youtube.com/vi/W0CmqOnl4jk/1.jpg)](https://www.youtube.com/watch?v=W0CmqOnl4jk)
+[![WASP bootloader and MicroPython running on Pine64 PineTime](https://img.youtube.com/vi/W0CmqOnl4jk/0.jpg)](https://www.youtube.com/watch?v=W0CmqOnl4jk)\
+[WASP bootloader and MicroPython running on Pine64 PineTime](https://www.youtube.com/watch?v=W0CmqOnl4jk)
 
 Building from a git clone
 -------------------------
@@ -88,3 +90,9 @@ wasp.run()
 
 As mentioned above there are many drivers and features still to be
 developed, see the [TODO list](TODO.md) for current status.
+
+Screenshots
+-----------
+
+![wasp-os digital clock app running on PineTime](res/clock_app.jpg)
+

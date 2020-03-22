@@ -34,55 +34,301 @@
             
   <div class="section" id="wasp-internals">
 <h1>WASP Internals<a class="headerlink" href="#wasp-internals" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-manager">
-<span id="system-management"></span><h2>System management<a class="headerlink" href="#module-manager" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-wasp">
+<span id="system-management"></span><h2>System management<a class="headerlink" href="#module-wasp" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="manager.Manager">
-<em class="property">class </em><code class="sig-prename descclassname">manager.</code><code class="sig-name descname">Manager</code><span class="sig-paren">(</span><em class="sig-param">watch</em><span class="sig-paren">)</span><a class="headerlink" href="#manager.Manager" title="Permalink to this definition">¶</a></dt>
+<dt id="wasp.Manager">
+<em class="property">class </em><code class="sig-prename descclassname">wasp.</code><code class="sig-name descname">Manager</code><a class="headerlink" href="#wasp.Manager" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
-<dt id="manager.Manager.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#manager.Manager.run" title="Permalink to this definition">¶</a></dt>
+<dt id="wasp.Manager.handle_event">
+<code class="sig-name descname">handle_event</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#wasp.Manager.handle_event" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="manager.Manager.switch">
-<code class="sig-name descname">switch</code><span class="sig-paren">(</span><em class="sig-param">app</em><span class="sig-paren">)</span><a class="headerlink" href="#manager.Manager.switch" title="Permalink to this definition">¶</a></dt>
+<dt id="wasp.Manager.navigate">
+<code class="sig-name descname">navigate</code><span class="sig-paren">(</span><em class="sig-param">direction=None</em><span class="sig-paren">)</span><a class="headerlink" href="#wasp.Manager.navigate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigate between different applications.</p>
+<p>Currently the direction is ignored.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="wasp.Manager.request_event">
+<code class="sig-name descname">request_event</code><span class="sig-paren">(</span><em class="sig-param">event_mask</em><span class="sig-paren">)</span><a class="headerlink" href="#wasp.Manager.request_event" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="manager.Manager.tick">
-<code class="sig-name descname">tick</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#manager.Manager.tick" title="Permalink to this definition">¶</a></dt>
+<dt id="wasp.Manager.request_tick">
+<code class="sig-name descname">request_tick</code><span class="sig-paren">(</span><em class="sig-param">period_ms=None</em><span class="sig-paren">)</span><a class="headerlink" href="#wasp.Manager.request_tick" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request (and subscribe to) a periodic tick event.</p>
+<p>Note: With the current simplistic timer implementation sub-second
+tick intervals are not possible.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="wasp.Manager.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wasp.Manager.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the system manager synchronously.</p>
+<p>This allows all watch management activities to handle in the
+normal execution context meaning any exceptions and other problems
+can be observed interactively via the console.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="wasp.Manager.switch">
+<code class="sig-name descname">switch</code><span class="sig-paren">(</span><em class="sig-param">app</em><span class="sig-paren">)</span><a class="headerlink" href="#wasp.Manager.switch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="wasp.Manager.tick">
+<code class="sig-name descname">tick</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wasp.Manager.tick" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 </div>
-<div class="section" id="module-clock">
-<span id="applications"></span><h2>Applications<a class="headerlink" href="#module-clock" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-apps.clock">
+<span id="applications"></span><h2>Applications<a class="headerlink" href="#module-apps.clock" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="clock.ClockApp">
-<em class="property">class </em><code class="sig-prename descclassname">clock.</code><code class="sig-name descname">ClockApp</code><a class="headerlink" href="#clock.ClockApp" title="Permalink to this definition">¶</a></dt>
+<dt id="apps.clock.ClockApp">
+<em class="property">class </em><code class="sig-prename descclassname">apps.clock.</code><code class="sig-name descname">ClockApp</code><a class="headerlink" href="#apps.clock.ClockApp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simple digital clock application.</p>
 <p>Shows a time (as HH:MM) together with a battery meter and the date.</p>
 <dl class="method">
-<dt id="clock.ClockApp.draw">
-<code class="sig-name descname">draw</code><span class="sig-paren">(</span><em class="sig-param">watch</em><span class="sig-paren">)</span><a class="headerlink" href="#clock.ClockApp.draw" title="Permalink to this definition">¶</a></dt>
+<dt id="apps.clock.ClockApp.background">
+<code class="sig-name descname">background</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.clock.ClockApp.background" title="Permalink to this definition">¶</a></dt>
+<dd><p>De-activate the application (without losing state).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apps.clock.ClockApp.draw">
+<code class="sig-name descname">draw</code><span class="sig-paren">(</span><em class="sig-param">effect=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.clock.ClockApp.draw" title="Permalink to this definition">¶</a></dt>
 <dd><p>Redraw the display from scratch.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="clock.ClockApp.update">
-<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">watch</em><span class="sig-paren">)</span><a class="headerlink" href="#clock.ClockApp.update" title="Permalink to this definition">¶</a></dt>
+<dt id="apps.clock.ClockApp.foreground">
+<code class="sig-name descname">foreground</code><span class="sig-paren">(</span><em class="sig-param">effect=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.clock.ClockApp.foreground" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activate the application.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apps.clock.ClockApp.handle_event">
+<code class="sig-name descname">handle_event</code><span class="sig-paren">(</span><em class="sig-param">event_view</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.clock.ClockApp.handle_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process events that the app is subscribed to.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apps.clock.ClockApp.sleep">
+<code class="sig-name descname">sleep</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.clock.ClockApp.sleep" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apps.clock.ClockApp.tick">
+<code class="sig-name descname">tick</code><span class="sig-paren">(</span><em class="sig-param">ticks</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.clock.ClockApp.tick" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apps.clock.ClockApp.update">
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.clock.ClockApp.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the display (if needed).</p>
 <p>The updates are a lazy as possible and rely on an prior call to
 draw() to ensure the screen is suitably prepared.</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="apps.clock.ClockApp.wake">
+<code class="sig-name descname">wake</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.clock.ClockApp.wake" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-apps.flashlight"></span><dl class="class">
+<dt id="apps.flashlight.FlashlightApp">
+<em class="property">class </em><code class="sig-prename descclassname">apps.flashlight.</code><code class="sig-name descname">FlashlightApp</code><a class="headerlink" href="#apps.flashlight.FlashlightApp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trivial flashlight application.</p>
+<p>Shows a pure white screen with the backlight set to maximum.</p>
+<dl class="method">
+<dt id="apps.flashlight.FlashlightApp.background">
+<code class="sig-name descname">background</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.flashlight.FlashlightApp.background" title="Permalink to this definition">¶</a></dt>
+<dd><p>De-activate the application (without losing state).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apps.flashlight.FlashlightApp.draw">
+<code class="sig-name descname">draw</code><span class="sig-paren">(</span><em class="sig-param">effect=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.flashlight.FlashlightApp.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Redraw the display from scratch.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apps.flashlight.FlashlightApp.foreground">
+<code class="sig-name descname">foreground</code><span class="sig-paren">(</span><em class="sig-param">effect=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.flashlight.FlashlightApp.foreground" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activate the application.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apps.flashlight.FlashlightApp.sleep">
+<code class="sig-name descname">sleep</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.flashlight.FlashlightApp.sleep" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apps.flashlight.FlashlightApp.tick">
+<code class="sig-name descname">tick</code><span class="sig-paren">(</span><em class="sig-param">ticks</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.flashlight.FlashlightApp.tick" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-apps.testapp"></span><dl class="class">
+<dt id="apps.testapp.TestApp">
+<em class="property">class </em><code class="sig-prename descclassname">apps.testapp.</code><code class="sig-name descname">TestApp</code><a class="headerlink" href="#apps.testapp.TestApp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple test application.</p>
+<dl class="method">
+<dt id="apps.testapp.TestApp.background">
+<code class="sig-name descname">background</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.testapp.TestApp.background" title="Permalink to this definition">¶</a></dt>
+<dd><p>De-activate the application (without losing state).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apps.testapp.TestApp.draw">
+<code class="sig-name descname">draw</code><span class="sig-paren">(</span><em class="sig-param">effect=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.testapp.TestApp.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Redraw the display from scratch.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apps.testapp.TestApp.foreground">
+<code class="sig-name descname">foreground</code><span class="sig-paren">(</span><em class="sig-param">effect=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.testapp.TestApp.foreground" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activate the application.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apps.testapp.TestApp.sleep">
+<code class="sig-name descname">sleep</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.testapp.TestApp.sleep" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apps.testapp.TestApp.swipe">
+<code class="sig-name descname">swipe</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.testapp.TestApp.swipe" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apps.testapp.TestApp.touch">
+<code class="sig-name descname">touch</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.testapp.TestApp.touch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </div>
-<div class="section" id="module-drivers.st7789">
-<span id="device-drivers"></span><h2>Device drivers<a class="headerlink" href="#module-drivers.st7789" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-drivers.battery">
+<span id="device-drivers"></span><h2>Device drivers<a class="headerlink" href="#module-drivers.battery" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="drivers.battery.Battery">
+<em class="property">class </em><code class="sig-prename descclassname">drivers.battery.</code><code class="sig-name descname">Battery</code><span class="sig-paren">(</span><em class="sig-param">battery</em>, <em class="sig-param">charging</em>, <em class="sig-param">power=None</em><span class="sig-paren">)</span><a class="headerlink" href="#drivers.battery.Battery" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="drivers.battery.Battery.charging">
+<code class="sig-name descname">charging</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#drivers.battery.Battery.charging" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="drivers.battery.Battery.level">
+<code class="sig-name descname">level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#drivers.battery.Battery.level" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="drivers.battery.Battery.power">
+<code class="sig-name descname">power</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#drivers.battery.Battery.power" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="drivers.battery.Battery.voltage_mv">
+<code class="sig-name descname">voltage_mv</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#drivers.battery.Battery.voltage_mv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-drivers.cst816s"></span><p>Hynitron CST816S touch contoller driver for MicroPython.</p>
+<p>After modifying this file we can test the changes by replacing the
+frozen driver with the modified driver. The following command will
+upload the code and integrate it into the watch namespace:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>./tools/wasptool      --exec wasp/drivers/cst816s.py      --eval &quot;watch.touch = CST816S(watch.i2c)&quot;`
+</pre></div>
+</div>
+<dl class="class">
+<dt id="drivers.cst816s.CST816S">
+<em class="property">class </em><code class="sig-prename descclassname">drivers.cst816s.</code><code class="sig-name descname">CST816S</code><span class="sig-paren">(</span><em class="sig-param">bus</em><span class="sig-paren">)</span><a class="headerlink" href="#drivers.cst816s.CST816S" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hynitron CST816S I2C touch controller driver.</p>
+<dl class="method">
+<dt id="drivers.cst816s.CST816S.get_event">
+<code class="sig-name descname">get_event</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#drivers.cst816s.CST816S.get_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receive a touch event.</p>
+<p>Check for a pending touch event and, if an event is pending,
+prepare it ready to go in the event queue.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An event record if an event is received, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-drivers.nrf_rtc"></span><p>Real Time Clock based on the nRF-family low power counter</p>
+<dl class="class">
+<dt id="drivers.nrf_rtc.RTC">
+<em class="property">class </em><code class="sig-prename descclassname">drivers.nrf_rtc.</code><code class="sig-name descname">RTC</code><span class="sig-paren">(</span><em class="sig-param">counter</em><span class="sig-paren">)</span><a class="headerlink" href="#drivers.nrf_rtc.RTC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Real Time Clock based on the nRF-family low power counter.</p>
+<dl class="method">
+<dt id="drivers.nrf_rtc.RTC.get_localtime">
+<code class="sig-name descname">get_localtime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#drivers.nrf_rtc.RTC.get_localtime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="drivers.nrf_rtc.RTC.get_time">
+<code class="sig-name descname">get_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#drivers.nrf_rtc.RTC.get_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="drivers.nrf_rtc.RTC.get_uptime_ms">
+<code class="sig-name descname">get_uptime_ms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#drivers.nrf_rtc.RTC.get_uptime_ms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current uptime in milliseconds.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="drivers.nrf_rtc.RTC.set_localtime">
+<code class="sig-name descname">set_localtime</code><span class="sig-paren">(</span><em class="sig-param">t</em><span class="sig-paren">)</span><a class="headerlink" href="#drivers.nrf_rtc.RTC.set_localtime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="drivers.nrf_rtc.RTC.update">
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#drivers.nrf_rtc.RTC.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-drivers.signal"></span><dl class="class">
+<dt id="drivers.signal.Signal">
+<em class="property">class </em><code class="sig-prename descclassname">drivers.signal.</code><code class="sig-name descname">Signal</code><span class="sig-paren">(</span><em class="sig-param">pin</em>, <em class="sig-param">invert=False</em><span class="sig-paren">)</span><a class="headerlink" href="#drivers.signal.Signal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simplified Signal class</p>
+<p>Note: The normal C implementation isn’t working for the NRF port</p>
+<dl class="method">
+<dt id="drivers.signal.Signal.off">
+<code class="sig-name descname">off</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#drivers.signal.Signal.off" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="drivers.signal.Signal.on">
+<code class="sig-name descname">on</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#drivers.signal.Signal.on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="drivers.signal.Signal.value">
+<code class="sig-name descname">value</code><span class="sig-paren">(</span><em class="sig-param">v=None</em><span class="sig-paren">)</span><a class="headerlink" href="#drivers.signal.Signal.value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-drivers.st7789"></span><p>Sitronix ST7789 display driver for MicroPython.</p>
+<p>Note: Although the ST7789 supports a variety of communication protocols
+currently this driver only has support for SPI interfaces. However it is
+structured such that other serial protocols can easily be added.</p>
 <dl class="class">
 <dt id="drivers.st7789.ST7789">
 <em class="property">class </em><code class="sig-prename descclassname">drivers.st7789.</code><code class="sig-name descname">ST7789</code><span class="sig-paren">(</span><em class="sig-param">width</em>, <em class="sig-param">height</em><span class="sig-paren">)</span><a class="headerlink" href="#drivers.st7789.ST7789" title="Permalink to this definition">¶</a></dt>
@@ -107,6 +353,11 @@ draw() to ensure the screen is suitably prepared.</p>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="drivers.st7789.ST7789.mute">
+<code class="sig-name descname">mute</code><span class="sig-paren">(</span><em class="sig-param">mute</em><span class="sig-paren">)</span><a class="headerlink" href="#drivers.st7789.ST7789.mute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="drivers.st7789.ST7789.poweroff">
 <code class="sig-name descname">poweroff</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#drivers.st7789.ST7789.poweroff" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -119,11 +370,6 @@ draw() to ensure the screen is suitably prepared.</p>
 <dl class="method">
 <dt id="drivers.st7789.ST7789.rawblit">
 <code class="sig-name descname">rawblit</code><span class="sig-paren">(</span><em class="sig-param">buf</em>, <em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">width</em>, <em class="sig-param">height</em><span class="sig-paren">)</span><a class="headerlink" href="#drivers.st7789.ST7789.rawblit" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="drivers.st7789.ST7789.rleblit">
-<code class="sig-name descname">rleblit</code><span class="sig-paren">(</span><em class="sig-param">image</em>, <em class="sig-param">pos=(0</em>, <em class="sig-param">0)</em>, <em class="sig-param">fg=65535</em>, <em class="sig-param">bg=0</em><span class="sig-paren">)</span><a class="headerlink" href="#drivers.st7789.ST7789.rleblit" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -153,10 +399,15 @@ draw() to ensure the screen is suitably prepared.</p>
 
 </dd></dl>
 
-<dl class="function">
-<dt id="drivers.st7789.fastfill">
-<code class="sig-prename descclassname">drivers.st7789.</code><code class="sig-name descname">fastfill</code><span class="sig-paren">(</span><em class="sig-param">mv</em>, <em class="sig-param">color: int</em>, <em class="sig-param">count: int</em>, <em class="sig-param">offset: int</em><span class="sig-paren">)</span><a class="headerlink" href="#drivers.st7789.fastfill" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="module-drivers.vibrator"></span><dl class="class">
+<dt id="drivers.vibrator.Vibrator">
+<em class="property">class </em><code class="sig-prename descclassname">drivers.vibrator.</code><code class="sig-name descname">Vibrator</code><span class="sig-paren">(</span><em class="sig-param">pin</em>, <em class="sig-param">active_low=False</em><span class="sig-paren">)</span><a class="headerlink" href="#drivers.vibrator.Vibrator" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="drivers.vibrator.Vibrator.pulse">
+<code class="sig-name descname">pulse</code><span class="sig-paren">(</span><em class="sig-param">duty=50</em>, <em class="sig-param">ms=100</em><span class="sig-paren">)</span><a class="headerlink" href="#drivers.vibrator.Vibrator.pulse" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+</dd></dl>
 
 </div>
 <div class="section" id="module-draw565">
@@ -167,6 +418,20 @@ draw() to ensure the screen is suitably prepared.</p>
 <dd><p>Drawing library for RGB565 displays.</p>
 <p>A full framebufer is not required although the library will
 ‘borrow’ a line buffer from the underlying display driver.</p>
+<dl class="method">
+<dt id="draw565.Draw565.fill">
+<code class="sig-name descname">fill</code><span class="sig-paren">(</span><em class="sig-param">bg=None</em>, <em class="sig-param">x=0</em>, <em class="sig-param">y=0</em>, <em class="sig-param">w=None</em>, <em class="sig-param">h=None</em><span class="sig-paren">)</span><a class="headerlink" href="#draw565.Draw565.fill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw a solid color rectangle.</p>
+<p>If no arguments a provided the whole display will be filled with
+the background color.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="draw565.Draw565.rleblit">
+<code class="sig-name descname">rleblit</code><span class="sig-paren">(</span><em class="sig-param">image</em>, <em class="sig-param">pos=(0</em>, <em class="sig-param">0)</em>, <em class="sig-param">fg=65535</em>, <em class="sig-param">bg=0</em><span class="sig-paren">)</span><a class="headerlink" href="#draw565.Draw565.rleblit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decode and draw a 1-bit RLE image.</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="draw565.Draw565.set_color">
 <code class="sig-name descname">set_color</code><span class="sig-paren">(</span><em class="sig-param">color</em>, <em class="sig-param">bg=0</em><span class="sig-paren">)</span><a class="headerlink" href="#draw565.Draw565.set_color" title="Permalink to this definition">¶</a></dt>
@@ -195,6 +460,66 @@ there is no need to “undraw” it)</p>
 
 </dd></dl>
 
+<span class="target" id="module-icons"></span><span class="target" id="module-fonts.clock"></span><span class="target" id="module-fonts.sans24"></span><dl class="function">
+<dt id="fonts.sans24.baseline">
+<code class="sig-prename descclassname">fonts.sans24.</code><code class="sig-name descname">baseline</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fonts.sans24.baseline" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="fonts.sans24.get_ch">
+<code class="sig-prename descclassname">fonts.sans24.</code><code class="sig-name descname">get_ch</code><span class="sig-paren">(</span><em class="sig-param">ch</em><span class="sig-paren">)</span><a class="headerlink" href="#fonts.sans24.get_ch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="fonts.sans24.height">
+<code class="sig-prename descclassname">fonts.sans24.</code><code class="sig-name descname">height</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fonts.sans24.height" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="fonts.sans24.hmap">
+<code class="sig-prename descclassname">fonts.sans24.</code><code class="sig-name descname">hmap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fonts.sans24.hmap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="fonts.sans24.max_ch">
+<code class="sig-prename descclassname">fonts.sans24.</code><code class="sig-name descname">max_ch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fonts.sans24.max_ch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="fonts.sans24.max_width">
+<code class="sig-prename descclassname">fonts.sans24.</code><code class="sig-name descname">max_width</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fonts.sans24.max_width" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="fonts.sans24.min_ch">
+<code class="sig-prename descclassname">fonts.sans24.</code><code class="sig-name descname">min_ch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fonts.sans24.min_ch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="fonts.sans24.monospaced">
+<code class="sig-prename descclassname">fonts.sans24.</code><code class="sig-name descname">monospaced</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fonts.sans24.monospaced" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="fonts.sans24.reverse">
+<code class="sig-prename descclassname">fonts.sans24.</code><code class="sig-name descname">reverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fonts.sans24.reverse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-logo"></span><span class="target" id="module-widgets"></span><dl class="class">
+<dt id="widgets.BatteryMeter">
+<em class="property">class </em><code class="sig-prename descclassname">widgets.</code><code class="sig-name descname">BatteryMeter</code><a class="headerlink" href="#widgets.BatteryMeter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="widgets.BatteryMeter.draw">
+<code class="sig-name descname">draw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#widgets.BatteryMeter.draw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="widgets.BatteryMeter.update">
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#widgets.BatteryMeter.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 
@@ -219,13 +544,14 @@ there is no need to “undraw” it)</p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="README.html">Watch Application System in Python</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">WASP Internals</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-manager">System management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-clock">Applications</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-drivers.st7789">Device drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-wasp">System management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-apps.clock">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-drivers.battery">Device drivers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-draw565">Libraries</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="TODO.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Licensing</a></li>
 </ul>
 
 <div class="relations">
