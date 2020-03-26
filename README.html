@@ -96,15 +96,20 @@ interrupt the program that updates the watch display.</p>
 <span class="c1"># After watching the demo for a bit...</span>
 <span class="o">^</span><span class="n">C</span>
 <span class="n">wasp</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">watch</span><span class="p">)</span>
-<span class="n">wasp</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">wasp</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>To set the time and restart the main application:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">^</span><span class="n">C</span>
-<span class="n">watch</span><span class="o">.</span><span class="n">rtc</span><span class="o">.</span><span class="n">set_time</span><span class="p">((</span><span class="n">hh</span><span class="p">,</span> <span class="n">mm</span><span class="p">,</span> <span class="n">ss</span><span class="p">))</span>
-<span class="n">wasp</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">watch</span><span class="o">.</span><span class="n">rtc</span><span class="o">.</span><span class="n">set_localtime</span><span class="p">((</span><span class="n">yyyy</span><span class="p">,</span> <span class="n">mm</span><span class="p">,</span> <span class="n">dd</span><span class="p">,</span> <span class="n">HH</span><span class="p">,</span> <span class="n">MM</span><span class="p">,</span> <span class="n">SS</span><span class="p">))</span>
+<span class="n">wasp</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>Or just use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">tools</span><span class="o">/</span><span class="n">wasptool</span> <span class="o">--</span><span class="n">rtc</span>
+</pre></div>
+</div>
+<p>which can run these commands automatically.</p>
 <p>As mentioned above there are many drivers and features still to be
 developed, see the <a class="reference internal" href="TODO.html"><span class="doc">TODO list</span></a> for current status.</p>
 </div>

@@ -36,25 +36,113 @@
 <h1>WASP Internals<a class="headerlink" href="#wasp-internals" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-wasp">
 <span id="system-management"></span><h2>System management<a class="headerlink" href="#module-wasp" title="Permalink to this headline">¶</a></h2>
+<p>WASP system management (including constants)</p>
+<dl class="data">
+<dt>
+<code class="sig-name descname">system = Manager()</code></dt>
+<dd><p>system is the system-wide instance of the Manager class. Applications
+can use this instance to access system services.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="wasp.Direction">
+<em class="property">class </em><code class="sig-prename descclassname">wasp.</code><code class="sig-name descname">Direction</code><a class="headerlink" href="#wasp.Direction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enumerated directions.</p>
+<p>MicroPython does not implement the enum module so Direction
+is simply a regular object which acts as a namespace.</p>
+<dl class="attribute">
+<dt id="wasp.Direction.DOWN">
+<code class="sig-name descname">DOWN</code><em class="property"> = 1</em><a class="headerlink" href="#wasp.Direction.DOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wasp.Direction.LEFT">
+<code class="sig-name descname">LEFT</code><em class="property"> = 3</em><a class="headerlink" href="#wasp.Direction.LEFT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wasp.Direction.RIGHT">
+<code class="sig-name descname">RIGHT</code><em class="property"> = 4</em><a class="headerlink" href="#wasp.Direction.RIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wasp.Direction.UP">
+<code class="sig-name descname">UP</code><em class="property"> = 2</em><a class="headerlink" href="#wasp.Direction.UP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="wasp.Event">
+<em class="property">class </em><code class="sig-prename descclassname">wasp.</code><code class="sig-name descname">Event</code><a class="headerlink" href="#wasp.Event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enumerated event types</p>
+<dl class="attribute">
+<dt id="wasp.Event.BUTTON">
+<code class="sig-name descname">BUTTON</code><em class="property"> = 8</em><a class="headerlink" href="#wasp.Event.BUTTON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wasp.Event.SWIPE_LEFTRIGHT">
+<code class="sig-name descname">SWIPE_LEFTRIGHT</code><em class="property"> = 2</em><a class="headerlink" href="#wasp.Event.SWIPE_LEFTRIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wasp.Event.SWIPE_UPDOWN">
+<code class="sig-name descname">SWIPE_UPDOWN</code><em class="property"> = 4</em><a class="headerlink" href="#wasp.Event.SWIPE_UPDOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wasp.Event.TOUCH">
+<code class="sig-name descname">TOUCH</code><em class="property"> = 1</em><a class="headerlink" href="#wasp.Event.TOUCH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="class">
 <dt id="wasp.Manager">
 <em class="property">class </em><code class="sig-prename descclassname">wasp.</code><code class="sig-name descname">Manager</code><a class="headerlink" href="#wasp.Manager" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="wasp.Manager.handle_event">
-<code class="sig-name descname">handle_event</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#wasp.Manager.handle_event" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>WASP system manager</p>
+<p>The manager is responsible for handling top-level UI events and
+dispatching them to the foreground application. It also provides
+services to the application.</p>
+<p>The manager is expected to have a single system-wide instance
+which can be accessed via <code class="xref py py-data docutils literal notranslate"><span class="pre">wasp.system</span></code> .</p>
+<dl class="method">
+<dt id="wasp.Manager.brightness">
+<em class="property">property </em><code class="sig-name descname">brightness</code><a class="headerlink" href="#wasp.Manager.brightness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cached copy of the brightness current written to the hardware.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="wasp.Manager.keep_awake">
+<code class="sig-name descname">keep_awake</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wasp.Manager.keep_awake" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the keep awake timer.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="wasp.Manager.navigate">
 <code class="sig-name descname">navigate</code><span class="sig-paren">(</span><em class="sig-param">direction=None</em><span class="sig-paren">)</span><a class="headerlink" href="#wasp.Manager.navigate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Navigate between different applications.</p>
-<p>Currently the direction is ignored.</p>
+<dd><p>Navigate to a new application.</p>
+<p>Left/right navigation is used to switch between applications in the
+quick application ring. Applications on the ring are not permitted
+to subscribe to :py:data`Event.SWIPE_LEFTRIGHT` events.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>direction</strong> (<em>int</em>) – The direction of the navigation</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="wasp.Manager.request_event">
 <code class="sig-name descname">request_event</code><span class="sig-paren">(</span><em class="sig-param">event_mask</em><span class="sig-paren">)</span><a class="headerlink" href="#wasp.Manager.request_event" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Subscribe to events.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>event_mask</strong> (<em>int</em>) – The set of events to subscribe to.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="wasp.Manager.request_tick">
@@ -76,12 +164,8 @@ can be observed interactively via the console.</p>
 <dl class="method">
 <dt id="wasp.Manager.switch">
 <code class="sig-name descname">switch</code><span class="sig-paren">(</span><em class="sig-param">app</em><span class="sig-paren">)</span><a class="headerlink" href="#wasp.Manager.switch" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="wasp.Manager.tick">
-<code class="sig-name descname">tick</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wasp.Manager.tick" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Switch to the requested application.</p>
+</dd></dl>
 
 </dd></dl>
 
