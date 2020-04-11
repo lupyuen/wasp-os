@@ -45,55 +45,70 @@ can use this instance to access system services.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="wasp.Direction">
-<em class="property">class </em><code class="sig-prename descclassname">wasp.</code><code class="sig-name descname">Direction</code><a class="headerlink" href="#wasp.Direction" title="Permalink to this definition">¶</a></dt>
-<dd><p>Enumerated directions.</p>
-<p>MicroPython does not implement the enum module so Direction
-is simply a regular object which acts as a namespace.</p>
+<dt id="wasp.EventMask">
+<em class="property">class </em><code class="sig-prename descclassname">wasp.</code><code class="sig-name descname">EventMask</code><a class="headerlink" href="#wasp.EventMask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enumerated event masks.</p>
 <dl class="attribute">
-<dt id="wasp.Direction.DOWN">
-<code class="sig-name descname">DOWN</code><em class="property"> = 1</em><a class="headerlink" href="#wasp.Direction.DOWN" title="Permalink to this definition">¶</a></dt>
+<dt id="wasp.EventMask.BUTTON">
+<code class="sig-name descname">BUTTON</code><em class="property"> = 8</em><a class="headerlink" href="#wasp.EventMask.BUTTON" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="wasp.Direction.LEFT">
-<code class="sig-name descname">LEFT</code><em class="property"> = 3</em><a class="headerlink" href="#wasp.Direction.LEFT" title="Permalink to this definition">¶</a></dt>
+<dt id="wasp.EventMask.SWIPE_LEFTRIGHT">
+<code class="sig-name descname">SWIPE_LEFTRIGHT</code><em class="property"> = 2</em><a class="headerlink" href="#wasp.EventMask.SWIPE_LEFTRIGHT" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="wasp.Direction.RIGHT">
-<code class="sig-name descname">RIGHT</code><em class="property"> = 4</em><a class="headerlink" href="#wasp.Direction.RIGHT" title="Permalink to this definition">¶</a></dt>
+<dt id="wasp.EventMask.SWIPE_UPDOWN">
+<code class="sig-name descname">SWIPE_UPDOWN</code><em class="property"> = 4</em><a class="headerlink" href="#wasp.EventMask.SWIPE_UPDOWN" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="wasp.Direction.UP">
-<code class="sig-name descname">UP</code><em class="property"> = 2</em><a class="headerlink" href="#wasp.Direction.UP" title="Permalink to this definition">¶</a></dt>
+<dt id="wasp.EventMask.TOUCH">
+<code class="sig-name descname">TOUCH</code><em class="property"> = 1</em><a class="headerlink" href="#wasp.EventMask.TOUCH" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
-<dt id="wasp.Event">
-<em class="property">class </em><code class="sig-prename descclassname">wasp.</code><code class="sig-name descname">Event</code><a class="headerlink" href="#wasp.Event" title="Permalink to this definition">¶</a></dt>
-<dd><p>Enumerated event types</p>
+<dt id="wasp.EventType">
+<em class="property">class </em><code class="sig-prename descclassname">wasp.</code><code class="sig-name descname">EventType</code><a class="headerlink" href="#wasp.EventType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enumerated interface actions.</p>
+<p>MicroPython does not implement the enum module so EventType
+is simply a regular object which acts as a namespace.</p>
 <dl class="attribute">
-<dt id="wasp.Event.BUTTON">
-<code class="sig-name descname">BUTTON</code><em class="property"> = 8</em><a class="headerlink" href="#wasp.Event.BUTTON" title="Permalink to this definition">¶</a></dt>
+<dt id="wasp.EventType.BACK">
+<code class="sig-name descname">BACK</code><em class="property"> = 257</em><a class="headerlink" href="#wasp.EventType.BACK" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="wasp.Event.SWIPE_LEFTRIGHT">
-<code class="sig-name descname">SWIPE_LEFTRIGHT</code><em class="property"> = 2</em><a class="headerlink" href="#wasp.Event.SWIPE_LEFTRIGHT" title="Permalink to this definition">¶</a></dt>
+<dt id="wasp.EventType.DOWN">
+<code class="sig-name descname">DOWN</code><em class="property"> = 1</em><a class="headerlink" href="#wasp.EventType.DOWN" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="wasp.Event.SWIPE_UPDOWN">
-<code class="sig-name descname">SWIPE_UPDOWN</code><em class="property"> = 4</em><a class="headerlink" href="#wasp.Event.SWIPE_UPDOWN" title="Permalink to this definition">¶</a></dt>
+<dt id="wasp.EventType.HOME">
+<code class="sig-name descname">HOME</code><em class="property"> = 256</em><a class="headerlink" href="#wasp.EventType.HOME" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="wasp.Event.TOUCH">
-<code class="sig-name descname">TOUCH</code><em class="property"> = 1</em><a class="headerlink" href="#wasp.Event.TOUCH" title="Permalink to this definition">¶</a></dt>
+<dt id="wasp.EventType.LEFT">
+<code class="sig-name descname">LEFT</code><em class="property"> = 3</em><a class="headerlink" href="#wasp.EventType.LEFT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wasp.EventType.RIGHT">
+<code class="sig-name descname">RIGHT</code><em class="property"> = 4</em><a class="headerlink" href="#wasp.EventType.RIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wasp.EventType.TOUCH">
+<code class="sig-name descname">TOUCH</code><em class="property"> = 5</em><a class="headerlink" href="#wasp.EventType.TOUCH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="wasp.EventType.UP">
+<code class="sig-name descname">UP</code><em class="property"> = 2</em><a class="headerlink" href="#wasp.EventType.UP" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -125,10 +140,25 @@ which can be accessed via <code class="xref py py-data docutils literal notransl
 <dd><p>Navigate to a new application.</p>
 <p>Left/right navigation is used to switch between applications in the
 quick application ring. Applications on the ring are not permitted
-to subscribe to :py:data`Event.SWIPE_LEFTRIGHT` events.</p>
+to subscribe to :py:data`EventMask.SWIPE_LEFTRIGHT` events.</p>
+<p>Swipe up is used to bring up the launcher. Clock applications are not
+permitted to subscribe to :py:data`EventMask.SWIPE_UPDOWN` events since
+they should expect to be the default application (and is important that
+we can trigger the launcher from the default application).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>direction</strong> (<em>int</em>) – The direction of the navigation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="wasp.Manager.register">
+<code class="sig-name descname">register</code><span class="sig-paren">(</span><em class="sig-param">app</em>, <em class="sig-param">quick_ring=True</em><span class="sig-paren">)</span><a class="headerlink" href="#wasp.Manager.register" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register an application with the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>app</strong> (<em>object</em>) – The application to regsister</p>
 </dd>
 </dl>
 </dd></dl>
@@ -154,7 +184,7 @@ tick intervals are not possible.</p>
 
 <dl class="method">
 <dt id="wasp.Manager.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wasp.Manager.run" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">no_except=True</em><span class="sig-paren">)</span><a class="headerlink" href="#wasp.Manager.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run the system manager synchronously.</p>
 <p>This allows all watch management activities to handle in the
 normal execution context meaning any exceptions and other problems
@@ -162,9 +192,43 @@ can be observed interactively via the console.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="wasp.Manager.sleep">
+<code class="sig-name descname">sleep</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wasp.Manager.sleep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enter the deepest sleep state possible.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="wasp.Manager.switch">
 <code class="sig-name descname">switch</code><span class="sig-paren">(</span><em class="sig-param">app</em><span class="sig-paren">)</span><a class="headerlink" href="#wasp.Manager.switch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Switch to the requested application.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="wasp.Manager.wake">
+<code class="sig-name descname">wake</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wasp.Manager.wake" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return to a running state.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="wasp.PinHandler">
+<em class="property">class </em><code class="sig-prename descclassname">wasp.</code><code class="sig-name descname">PinHandler</code><span class="sig-paren">(</span><em class="sig-param">pin</em><span class="sig-paren">)</span><a class="headerlink" href="#wasp.PinHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pin (and Signal) event generator.</p>
+<p>TODO: Currently this driver doesn’t actually implement any
+debounce but it will!</p>
+<dl class="method">
+<dt id="wasp.PinHandler.get_event">
+<code class="sig-name descname">get_event</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wasp.PinHandler.get_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receive a pin change event.</p>
+<p>Check for a pending pin change event and, if an event is pending,
+return it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>boolean of the pin state if an event is received, None
+otherwise.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -177,28 +241,26 @@ can be observed interactively via the console.</p>
 <em class="property">class </em><code class="sig-prename descclassname">apps.clock.</code><code class="sig-name descname">ClockApp</code><a class="headerlink" href="#apps.clock.ClockApp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simple digital clock application.</p>
 <p>Shows a time (as HH:MM) together with a battery meter and the date.</p>
-<dl class="method">
-<dt id="apps.clock.ClockApp.background">
-<code class="sig-name descname">background</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.clock.ClockApp.background" title="Permalink to this definition">¶</a></dt>
-<dd><p>De-activate the application (without losing state).</p>
-</dd></dl>
+<dl class="attribute">
+<dt id="apps.clock.ClockApp.ICON">
+<code class="sig-name descname">ICON</code><em class="property"> = b'\x02`&#64;?\xff\xff\xff\xff\xff\xff\x8e&#64;\xb6F\r\xc6!E\x0b\xc8\x0cH\x0b\xca\x1dI\x07\xcc\nH\n\xcc\x1bK\x06\xce\x08C\x02C\n\xc4\x05\xc4\x1aD\x03D\x06\xc2\x08\xc4\rC\t\xc4\x07\xc3\x19D\x05D\x10\xc4\x0cC\t\xc3\t\xc2\x19C\x07C\x11\xc3\x0cC\t\xc3\t\xc3\nD\tD\x07D\x10\xc3\x0cC\t\xc3\t\xc3\nD\tC\tC\x10\xc3\x0cC\t\xc3\t\xc3\nD\tC\tC\x10\xc3\x0cC\t\xc4\x07\xc4\nD\tC\tC\x0f\xc4\x0cC\n\xc4\x05\xc5\nD\tC\tC\x0e\xc4\rC\n\xca\x01\xc3\x17C\tC\r\xc5\rC\x0b\xc9\x01\xc3\x17C\tC\x0c\xc5\x0eC\r\xc5\x03\xc3\x17C\tC\x0b\xc5\x0fC\x15\xc3\x17C\tC\n\xc5\x10C\x14\xc4\x17C\tC\t\xc5\x11C\x14\xc3\x18D\x07D\x08\xc4\x13C\x14\xc3\x19C\x07C\x08\xc4\x14C\x13\xc4\x0bD\nC\x06D\x07\xc4\x15C\x0b\xc1\x05\xc5\x0cD\x0bD\x03D\x07\xc3\x12M\x06\xca\rD\x0bK\x06\xcf\x07M\x06\xc9\x0eD\x0cI\x07\xcf\x07M\x07\xc6\x10D\x0eE\t\xcf?\xff\xff\xff\xff\xff\xff\xff\xffk'</em><a class="headerlink" href="#apps.clock.ClockApp.ICON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apps.clock.ClockApp.NAME">
+<code class="sig-name descname">NAME</code><em class="property"> = 'Clock'</em><a class="headerlink" href="#apps.clock.ClockApp.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="apps.clock.ClockApp.draw">
-<code class="sig-name descname">draw</code><span class="sig-paren">(</span><em class="sig-param">effect=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.clock.ClockApp.draw" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">draw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.clock.ClockApp.draw" title="Permalink to this definition">¶</a></dt>
 <dd><p>Redraw the display from scratch.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="apps.clock.ClockApp.foreground">
-<code class="sig-name descname">foreground</code><span class="sig-paren">(</span><em class="sig-param">effect=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.clock.ClockApp.foreground" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">foreground</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.clock.ClockApp.foreground" title="Permalink to this definition">¶</a></dt>
 <dd><p>Activate the application.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="apps.clock.ClockApp.handle_event">
-<code class="sig-name descname">handle_event</code><span class="sig-paren">(</span><em class="sig-param">event_view</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.clock.ClockApp.handle_event" title="Permalink to this definition">¶</a></dt>
-<dd><p>Process events that the app is subscribed to.</p>
 </dd></dl>
 
 <dl class="method">
@@ -231,6 +293,16 @@ draw() to ensure the screen is suitably prepared.</p>
 <em class="property">class </em><code class="sig-prename descclassname">apps.flashlight.</code><code class="sig-name descname">FlashlightApp</code><a class="headerlink" href="#apps.flashlight.FlashlightApp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Trivial flashlight application.</p>
 <p>Shows a pure white screen with the backlight set to maximum.</p>
+<dl class="attribute">
+<dt id="apps.flashlight.FlashlightApp.ICON">
+<code class="sig-name descname">ICON</code><em class="property"> = b'\x02`&#64;?\xff\xff\xff\xff\xff\xff\xff&amp;\xc6\x0c&#64;\xfdB?\n\xca\tD?\x08\xc4\x06\xc2\x07F?\x07\xc3\x07\xc2\x06H?\x06\xc2\n\xc1\x04G\xc2A8\xc5\x08\xc2\t\xc2\x02F\xc3C7\xc7\x06\xc2\x0b\xc1F\xc2F\x1e\xe8\n\xc2C\xc3H\x1d\xe8\x0c\xc1N\x1d\xc2%\xc1\x0b\xc2N\x1d\xc2%\xc1\x0c\xc1N\x1d\xc2\x04\x80m\x9d\x04\xc1\x0b\xc2N\x1d\xc2\x06\x81\x03\x81\x03\x81\x03\x81\x03\x81\x03\x81\x03\x81\x06\xc1\x0c\xc1N\x1d\xc2\x04\x9d\x04\xc1\x0b\xc2C\xcaA\x1d\xc2\x06\x81\x03\x81\x03\x81\x03\x81\x03\x81\x03\x81\x03\x81\x06\xc1\x0c\xc1N\x1d\xc2\x04\x9d\x04\xc1\x0b\xc2N\x1d\xc2%\xc1\x0c\xc1N\x1d\xc2%\xc1\x0b\xc2N\x1d\xe8\x0c\xc1N\x1e\xe8\n\xc2C\xc3H?\x05\xc2\x0b\xc1F\xc2F?\x06\xc2\t\xc2\x02F\xc3C?\x06\xc2\n\xc1\x04G\xc2A?\x07\xc3\x07\xc2\x06H?\x08\xc4\x06\xc2\x07F?\n\xca\tD?\r\xc6\x0cB?\xff\xff\xff\xff\xff\xff\x95'</em><a class="headerlink" href="#apps.flashlight.FlashlightApp.ICON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apps.flashlight.FlashlightApp.NAME">
+<code class="sig-name descname">NAME</code><em class="property"> = 'Torch'</em><a class="headerlink" href="#apps.flashlight.FlashlightApp.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="apps.flashlight.FlashlightApp.background">
 <code class="sig-name descname">background</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.flashlight.FlashlightApp.background" title="Permalink to this definition">¶</a></dt>
@@ -239,20 +311,15 @@ draw() to ensure the screen is suitably prepared.</p>
 
 <dl class="method">
 <dt id="apps.flashlight.FlashlightApp.draw">
-<code class="sig-name descname">draw</code><span class="sig-paren">(</span><em class="sig-param">effect=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.flashlight.FlashlightApp.draw" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">draw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.flashlight.FlashlightApp.draw" title="Permalink to this definition">¶</a></dt>
 <dd><p>Redraw the display from scratch.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="apps.flashlight.FlashlightApp.foreground">
-<code class="sig-name descname">foreground</code><span class="sig-paren">(</span><em class="sig-param">effect=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.flashlight.FlashlightApp.foreground" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">foreground</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.flashlight.FlashlightApp.foreground" title="Permalink to this definition">¶</a></dt>
 <dd><p>Activate the application.</p>
 </dd></dl>
-
-<dl class="method">
-<dt id="apps.flashlight.FlashlightApp.sleep">
-<code class="sig-name descname">sleep</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.flashlight.FlashlightApp.sleep" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 <dl class="method">
 <dt id="apps.flashlight.FlashlightApp.tick">
@@ -261,31 +328,187 @@ draw() to ensure the screen is suitably prepared.</p>
 
 </dd></dl>
 
+<span class="target" id="module-apps.launcher"></span><dl class="class">
+<dt id="apps.launcher.LauncherApp">
+<em class="property">class </em><code class="sig-prename descclassname">apps.launcher.</code><code class="sig-name descname">LauncherApp</code><a class="headerlink" href="#apps.launcher.LauncherApp" title="Permalink to this definition">¶</a></dt>
+<dd><p>An application launcher application.</p>
+<dl class="attribute">
+<dt id="apps.launcher.LauncherApp.ICON">
+<code class="sig-name descname">ICON</code><em class="property"> = b'\x02`&#64;\x1e&#64;md&lt;d&lt;d;f?X\xec2\xf0/\xf2-\xf4,\xc3.\xc3,\xc3.\xc3,\xc3.\xc3,\xc3.\xc3,\xc3.\xc3,\xc3\x0c\x80\xfc\x83\x10\xc0]\xc3\x0c&#64;\xffC,C\n\x87\x0c\xc7\nC,C\t\x83\x02\x84\n\xc4\x02\xc3\tC,C\x08\x82\x07\x82\x08\xc2\x07\xc2\x08C,C\x07\x82\t\x82\x06\xc2\t\xc2\x07C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x05\x82\x0c\x82\x04\xc2\x0c\xc2\x05C,C\x05\x82\x0c\x82\x04\xc2\x0c\xc2\x05C,C\x05\x83\x0b\x82\x04\xc2\x0b\xc3\x05C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc1\x07C,C\x07\x82\n\x82\x04\xc2\n\xc2\x07C+D\x08\x82\t\x82\x04\xc2\t\xc2\x08C*E\t\x8c\x04\xcc\tC*E\n\x8b\x04\xcb\nC*E.C*E.C*E.C*E.C*E\n\x80\xe9\x8b\x04\xc0o\xcb\nC+D\t\x8c\x04\xcc\tC,C\x08\x82\t\x82\x04\xc2\t\xc2\x08C,C\x07\x82\n\x82\x04\xc2\n\xc2\x07C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc1\x07C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x05\x83\x0b\x82\x04\xc2\x0b\xc3\x05C,C\x05\x82\x0c\x82\x04\xc2\x0c\xc2\x05C,C\x05\x82\x0c\x82\x04\xc2\x0c\xc2\x05C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x07\x82\t\x82\x06\xc2\t\xc2\x07C,C\x08\x82\x07\x82\x08\xc2\x07\xc2\x08C,C\t\x83\x02\x84\n\xc4\x02\xc3\tC,C\n\x86\x0e\xc6\nC,C\x0c\x83\x10\xc3\x0cC,C.C,C.C,C.C,C.C,C.C,t-r/p2l?X&#64;mf;d&lt;d&lt;d\x1e'</em><a class="headerlink" href="#apps.launcher.LauncherApp.ICON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apps.launcher.LauncherApp.NAME">
+<code class="sig-name descname">NAME</code><em class="property"> = 'Launcher'</em><a class="headerlink" href="#apps.launcher.LauncherApp.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apps.launcher.LauncherApp.foreground">
+<code class="sig-name descname">foreground</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.launcher.LauncherApp.foreground" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activate the application.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apps.launcher.LauncherApp.swipe">
+<code class="sig-name descname">swipe</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.launcher.LauncherApp.swipe" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apps.launcher.LauncherApp.touch">
+<code class="sig-name descname">touch</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.launcher.LauncherApp.touch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-apps.pager"></span><dl class="class">
+<dt id="apps.pager.CrashApp">
+<em class="property">class </em><code class="sig-prename descclassname">apps.pager.</code><code class="sig-name descname">CrashApp</code><span class="sig-paren">(</span><em class="sig-param">exc</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.pager.CrashApp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Crash handler application.</p>
+<p>This application is launched automatically whenever another
+application crashes. Our main job it to indicate as loudly as
+possible that the system is no longer running correctly. This
+app deliberately enables inverted video mode in order to deliver
+that message as strongly as possible.</p>
+<dl class="method">
+<dt id="apps.pager.CrashApp.background">
+<code class="sig-name descname">background</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.pager.CrashApp.background" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restore a normal display mode.</p>
+<p>Conceal the display before the transition otherwise the inverted
+bombs get noticed by the user.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apps.pager.CrashApp.foreground">
+<code class="sig-name descname">foreground</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.pager.CrashApp.foreground" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicate the system has crashed by drawing a couple of bomb icons.</p>
+<p>If you owned an Atari ST back in the mid-eighties then I hope you
+recognise this as a tribute a long forgotten home computer!</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apps.pager.CrashApp.swipe">
+<code class="sig-name descname">swipe</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.pager.CrashApp.swipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show the exception message in a pager.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apps.pager.PagerApp">
+<em class="property">class </em><code class="sig-prename descclassname">apps.pager.</code><code class="sig-name descname">PagerApp</code><span class="sig-paren">(</span><em class="sig-param">msg</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.pager.PagerApp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show long text in a pager.</p>
+<p>This is used to present text based information to the user. It is primarily
+intended for notifications but is also used to provide debugging
+information when applications crash.</p>
+<dl class="attribute">
+<dt id="apps.pager.PagerApp.ICON">
+<code class="sig-name descname">ICON</code><em class="property"> = b'\x02`&#64;\x1e&#64;md&lt;d&lt;d;f?X\xec2\xf0/\xf2-\xf4,\xc3.\xc3,\xc3.\xc3,\xc3.\xc3,\xc3.\xc3,\xc3.\xc3,\xc3\x0c\x80\xfc\x83\x10\xc0]\xc3\x0c&#64;\xffC,C\n\x87\x0c\xc7\nC,C\t\x83\x02\x84\n\xc4\x02\xc3\tC,C\x08\x82\x07\x82\x08\xc2\x07\xc2\x08C,C\x07\x82\t\x82\x06\xc2\t\xc2\x07C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x05\x82\x0c\x82\x04\xc2\x0c\xc2\x05C,C\x05\x82\x0c\x82\x04\xc2\x0c\xc2\x05C,C\x05\x83\x0b\x82\x04\xc2\x0b\xc3\x05C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc1\x07C,C\x07\x82\n\x82\x04\xc2\n\xc2\x07C+D\x08\x82\t\x82\x04\xc2\t\xc2\x08C*E\t\x8c\x04\xcc\tC*E\n\x8b\x04\xcb\nC*E.C*E.C*E.C*E.C*E\n\x80\xe9\x8b\x04\xc0o\xcb\nC+D\t\x8c\x04\xcc\tC,C\x08\x82\t\x82\x04\xc2\t\xc2\x08C,C\x07\x82\n\x82\x04\xc2\n\xc2\x07C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc1\x07C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x05\x83\x0b\x82\x04\xc2\x0b\xc3\x05C,C\x05\x82\x0c\x82\x04\xc2\x0c\xc2\x05C,C\x05\x82\x0c\x82\x04\xc2\x0c\xc2\x05C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x07\x82\t\x82\x06\xc2\t\xc2\x07C,C\x08\x82\x07\x82\x08\xc2\x07\xc2\x08C,C\t\x83\x02\x84\n\xc4\x02\xc3\tC,C\n\x86\x0e\xc6\nC,C\x0c\x83\x10\xc3\x0cC,C.C,C.C,C.C,C.C,C.C,t-r/p2l?X&#64;mf;d&lt;d&lt;d\x1e'</em><a class="headerlink" href="#apps.pager.PagerApp.ICON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apps.pager.PagerApp.NAME">
+<code class="sig-name descname">NAME</code><em class="property"> = 'Pager'</em><a class="headerlink" href="#apps.pager.PagerApp.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apps.pager.PagerApp.background">
+<code class="sig-name descname">background</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.pager.PagerApp.background" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apps.pager.PagerApp.foreground">
+<code class="sig-name descname">foreground</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.pager.PagerApp.foreground" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activate the application.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apps.pager.PagerApp.swipe">
+<code class="sig-name descname">swipe</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.pager.PagerApp.swipe" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-apps.template"></span><dl class="class">
+<dt id="apps.template.TemplateApp">
+<em class="property">class </em><code class="sig-prename descclassname">apps.template.</code><code class="sig-name descname">TemplateApp</code><a class="headerlink" href="#apps.template.TemplateApp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template application ready to use as a basis for new applications.</p>
+<dl class="attribute">
+<dt id="apps.template.TemplateApp.ICON">
+<code class="sig-name descname">ICON</code><em class="property"> = b'\x02`&#64;\x1e&#64;md&lt;d&lt;d;f?X\xec2\xf0/\xf2-\xf4,\xc3.\xc3,\xc3.\xc3,\xc3.\xc3,\xc3.\xc3,\xc3.\xc3,\xc3\x0c\x80\xfc\x83\x10\xc0]\xc3\x0c&#64;\xffC,C\n\x87\x0c\xc7\nC,C\t\x83\x02\x84\n\xc4\x02\xc3\tC,C\x08\x82\x07\x82\x08\xc2\x07\xc2\x08C,C\x07\x82\t\x82\x06\xc2\t\xc2\x07C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x05\x82\x0c\x82\x04\xc2\x0c\xc2\x05C,C\x05\x82\x0c\x82\x04\xc2\x0c\xc2\x05C,C\x05\x83\x0b\x82\x04\xc2\x0b\xc3\x05C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc1\x07C,C\x07\x82\n\x82\x04\xc2\n\xc2\x07C+D\x08\x82\t\x82\x04\xc2\t\xc2\x08C*E\t\x8c\x04\xcc\tC*E\n\x8b\x04\xcb\nC*E.C*E.C*E.C*E.C*E\n\x80\xe9\x8b\x04\xc0o\xcb\nC+D\t\x8c\x04\xcc\tC,C\x08\x82\t\x82\x04\xc2\t\xc2\x08C,C\x07\x82\n\x82\x04\xc2\n\xc2\x07C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc1\x07C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x05\x83\x0b\x82\x04\xc2\x0b\xc3\x05C,C\x05\x82\x0c\x82\x04\xc2\x0c\xc2\x05C,C\x05\x82\x0c\x82\x04\xc2\x0c\xc2\x05C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x07\x82\t\x82\x06\xc2\t\xc2\x07C,C\x08\x82\x07\x82\x08\xc2\x07\xc2\x08C,C\t\x83\x02\x84\n\xc4\x02\xc3\tC,C\n\x86\x0e\xc6\nC,C\x0c\x83\x10\xc3\x0cC,C.C,C.C,C.C,C.C,C.C,t-r/p2l?X&#64;mf;d&lt;d&lt;d\x1e'</em><a class="headerlink" href="#apps.template.TemplateApp.ICON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apps.template.TemplateApp.NAME">
+<code class="sig-name descname">NAME</code><em class="property"> = 'Template'</em><a class="headerlink" href="#apps.template.TemplateApp.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apps.template.TemplateApp.foreground">
+<code class="sig-name descname">foreground</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.template.TemplateApp.foreground" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activate the application.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apps.template.TemplateApp.press">
+<code class="sig-name descname">press</code><span class="sig-paren">(</span><em class="sig-param">button</em>, <em class="sig-param">state</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.template.TemplateApp.press" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apps.template.TemplateApp.swipe">
+<code class="sig-name descname">swipe</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.template.TemplateApp.swipe" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apps.template.TemplateApp.touch">
+<code class="sig-name descname">touch</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.template.TemplateApp.touch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <span class="target" id="module-apps.testapp"></span><dl class="class">
 <dt id="apps.testapp.TestApp">
 <em class="property">class </em><code class="sig-prename descclassname">apps.testapp.</code><code class="sig-name descname">TestApp</code><a class="headerlink" href="#apps.testapp.TestApp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simple test application.</p>
+<dl class="attribute">
+<dt id="apps.testapp.TestApp.ICON">
+<code class="sig-name descname">ICON</code><em class="property"> = b'\x02`&#64;\x1e&#64;md&lt;d&lt;d;f?X\xec2\xf0/\xf2-\xf4,\xc3.\xc3,\xc3.\xc3,\xc3.\xc3,\xc3.\xc3,\xc3.\xc3,\xc3\x0c\x80\xfc\x83\x10\xc0]\xc3\x0c&#64;\xffC,C\n\x87\x0c\xc7\nC,C\t\x83\x02\x84\n\xc4\x02\xc3\tC,C\x08\x82\x07\x82\x08\xc2\x07\xc2\x08C,C\x07\x82\t\x82\x06\xc2\t\xc2\x07C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x05\x82\x0c\x82\x04\xc2\x0c\xc2\x05C,C\x05\x82\x0c\x82\x04\xc2\x0c\xc2\x05C,C\x05\x83\x0b\x82\x04\xc2\x0b\xc3\x05C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc1\x07C,C\x07\x82\n\x82\x04\xc2\n\xc2\x07C+D\x08\x82\t\x82\x04\xc2\t\xc2\x08C*E\t\x8c\x04\xcc\tC*E\n\x8b\x04\xcb\nC*E.C*E.C*E.C*E.C*E\n\x80\xe9\x8b\x04\xc0o\xcb\nC+D\t\x8c\x04\xcc\tC,C\x08\x82\t\x82\x04\xc2\t\xc2\x08C,C\x07\x82\n\x82\x04\xc2\n\xc2\x07C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc1\x07C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x05\x83\x0b\x82\x04\xc2\x0b\xc3\x05C,C\x05\x82\x0c\x82\x04\xc2\x0c\xc2\x05C,C\x05\x82\x0c\x82\x04\xc2\x0c\xc2\x05C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x06\x82\x0b\x82\x04\xc2\x0b\xc2\x06C,C\x07\x82\t\x82\x06\xc2\t\xc2\x07C,C\x08\x82\x07\x82\x08\xc2\x07\xc2\x08C,C\t\x83\x02\x84\n\xc4\x02\xc3\tC,C\n\x86\x0e\xc6\nC,C\x0c\x83\x10\xc3\x0cC,C.C,C.C,C.C,C.C,C.C,t-r/p2l?X&#64;mf;d&lt;d&lt;d\x1e'</em><a class="headerlink" href="#apps.testapp.TestApp.ICON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="apps.testapp.TestApp.NAME">
+<code class="sig-name descname">NAME</code><em class="property"> = 'Self Test'</em><a class="headerlink" href="#apps.testapp.TestApp.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
-<dt id="apps.testapp.TestApp.background">
-<code class="sig-name descname">background</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.testapp.TestApp.background" title="Permalink to this definition">¶</a></dt>
-<dd><p>De-activate the application (without losing state).</p>
-</dd></dl>
+<dt id="apps.testapp.TestApp.benchmark_rle">
+<code class="sig-name descname">benchmark_rle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.testapp.TestApp.benchmark_rle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apps.testapp.TestApp.benchmark_string">
+<code class="sig-name descname">benchmark_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.testapp.TestApp.benchmark_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="apps.testapp.TestApp.benchmark_wrap">
+<code class="sig-name descname">benchmark_wrap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.testapp.TestApp.benchmark_wrap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="apps.testapp.TestApp.draw">
-<code class="sig-name descname">draw</code><span class="sig-paren">(</span><em class="sig-param">effect=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.testapp.TestApp.draw" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">draw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.testapp.TestApp.draw" title="Permalink to this definition">¶</a></dt>
 <dd><p>Redraw the display from scratch.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="apps.testapp.TestApp.foreground">
-<code class="sig-name descname">foreground</code><span class="sig-paren">(</span><em class="sig-param">effect=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.testapp.TestApp.foreground" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">foreground</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.testapp.TestApp.foreground" title="Permalink to this definition">¶</a></dt>
 <dd><p>Activate the application.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="apps.testapp.TestApp.sleep">
-<code class="sig-name descname">sleep</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.testapp.TestApp.sleep" title="Permalink to this definition">¶</a></dt>
+<dt id="apps.testapp.TestApp.press">
+<code class="sig-name descname">press</code><span class="sig-paren">(</span><em class="sig-param">button</em>, <em class="sig-param">state</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.testapp.TestApp.press" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -467,6 +690,16 @@ structured such that other serial protocols can easily be added.</p>
 <dt id="drivers.st7789.ST7789_SPI">
 <em class="property">class </em><code class="sig-prename descclassname">drivers.st7789.</code><code class="sig-name descname">ST7789_SPI</code><span class="sig-paren">(</span><em class="sig-param">width</em>, <em class="sig-param">height</em>, <em class="sig-param">spi</em>, <em class="sig-param">cs</em>, <em class="sig-param">dc</em>, <em class="sig-param">res=None</em>, <em class="sig-param">rate=8000000</em><span class="sig-paren">)</span><a class="headerlink" href="#drivers.st7789.ST7789_SPI" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
+<dt id="drivers.st7789.ST7789_SPI.quick_end">
+<code class="sig-name descname">quick_end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#drivers.st7789.ST7789_SPI.quick_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="drivers.st7789.ST7789_SPI.quick_start">
+<code class="sig-name descname">quick_start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#drivers.st7789.ST7789_SPI.quick_start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="drivers.st7789.ST7789_SPI.reset">
 <code class="sig-name descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#drivers.st7789.ST7789_SPI.reset" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -488,7 +721,7 @@ structured such that other serial protocols can easily be added.</p>
 <em class="property">class </em><code class="sig-prename descclassname">drivers.vibrator.</code><code class="sig-name descname">Vibrator</code><span class="sig-paren">(</span><em class="sig-param">pin</em>, <em class="sig-param">active_low=False</em><span class="sig-paren">)</span><a class="headerlink" href="#drivers.vibrator.Vibrator" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="drivers.vibrator.Vibrator.pulse">
-<code class="sig-name descname">pulse</code><span class="sig-paren">(</span><em class="sig-param">duty=50</em>, <em class="sig-param">ms=100</em><span class="sig-paren">)</span><a class="headerlink" href="#drivers.vibrator.Vibrator.pulse" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pulse</code><span class="sig-paren">(</span><em class="sig-param">duty=25</em>, <em class="sig-param">ms=40</em><span class="sig-paren">)</span><a class="headerlink" href="#drivers.vibrator.Vibrator.pulse" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -503,11 +736,22 @@ structured such that other serial protocols can easily be added.</p>
 <p>A full framebufer is not required although the library will
 ‘borrow’ a line buffer from the underlying display driver.</p>
 <dl class="method">
+<dt id="draw565.Draw565.blit">
+<code class="sig-name descname">blit</code><span class="sig-paren">(</span><em class="sig-param">image</em>, <em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#draw565.Draw565.blit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="draw565.Draw565.fill">
 <code class="sig-name descname">fill</code><span class="sig-paren">(</span><em class="sig-param">bg=None</em>, <em class="sig-param">x=0</em>, <em class="sig-param">y=0</em>, <em class="sig-param">w=None</em>, <em class="sig-param">h=None</em><span class="sig-paren">)</span><a class="headerlink" href="#draw565.Draw565.fill" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw a solid color rectangle.</p>
 <p>If no arguments a provided the whole display will be filled with
 the background color.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="draw565.Draw565.reset">
+<code class="sig-name descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#draw565.Draw565.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restore the default colour and font.</p>
 </dd></dl>
 
 <dl class="method">
@@ -541,6 +785,11 @@ importantly, the remaining width will be filled with the background
 color (to ensure that if we update one string with a narrower one
 there is no need to “undraw” it)</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="draw565.Draw565.wrap">
+<code class="sig-name descname">wrap</code><span class="sig-paren">(</span><em class="sig-param">s</em>, <em class="sig-param">width</em><span class="sig-paren">)</span><a class="headerlink" href="#draw565.Draw565.wrap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -600,6 +849,21 @@ there is no need to “undraw” it)</p>
 <dl class="method">
 <dt id="widgets.BatteryMeter.update">
 <code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#widgets.BatteryMeter.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="widgets.ScrollIndicator">
+<em class="property">class </em><code class="sig-prename descclassname">widgets.</code><code class="sig-name descname">ScrollIndicator</code><span class="sig-paren">(</span><em class="sig-param">x=222</em>, <em class="sig-param">y=216</em><span class="sig-paren">)</span><a class="headerlink" href="#widgets.ScrollIndicator" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="widgets.ScrollIndicator.draw">
+<code class="sig-name descname">draw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#widgets.ScrollIndicator.draw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="widgets.ScrollIndicator.update">
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#widgets.ScrollIndicator.update" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
