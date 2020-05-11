@@ -46,17 +46,14 @@ applications.
 
 ### Bootloader
 
- * [ ] OTA bootloader update
- * [ ] Stay in bootloader after battery run down
- * [ ] Implement power off support (no splash screen)
- * [ ] RTC time measurement whilst in bootloader
+ * [X] OTA bootloader update
+ * [X] RTC time measurement whilst in bootloader
 
 ### MicroPython
 
  * [X] SPI FLASH driver
  * [X] Enable LittleFS on SPI FLASH (at boot)
  * [X] BLE file transfer
- * [ ] Full power saving
 
 ### WASP
 
@@ -64,14 +61,15 @@ applications.
  * [X] Button driver (interrupt based)
  * [X] Touch sensor driver
  * [X] Event driven application framework
- * [ ] Stopwatch app
+ * [X] Stopwatch app
  * [X] Settings app
  * [X] PC-hosted simulation platform
- * [.] Documentation
+ * [O] Documentation
    - [X] Sphinx framework and integration with github.io
-   - [ ] Document bootloader protocols
+   - [X] Document bootloader protocols
+   - [X] Application writer's guide
    - [ ] Write full docstring documentation for all WASP components
- * [ ] Application Launcher
+ * [X] Application Launcher
  * [X] Debug notifications
  * [o] Multi-colour RLE images
    - [X] Optimized "2-bit" RLE encoder and decoder
@@ -81,6 +79,16 @@ applications.
 
 At M3 we start to build out full fitness tracking and notification
 functionality.
+
+### Bootloader
+
+ * [ ] Stay in bootloader after battery run down
+ * [ ] Implement power off support (no splash screen)
+
+### Micropython
+
+ * [ ] Use SoftDevice sleep logic
+ * [ ] Automatically enter SPI flash power saving mode
 
 ### WASP
 

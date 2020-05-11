@@ -7,6 +7,7 @@
     <title>Watch Application System in Python &#8212; WASP-OS  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
@@ -14,7 +15,7 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="WASP Internals" href="wasp.html" />
+    <link rel="next" title="Application Writer’s Guide" href="appguide.html" />
     <link rel="prev" title="Welcome to WASP-OS’s documentation!" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -36,11 +37,11 @@
 <h1>Watch Application System in Python<a class="headerlink" href="#watch-application-system-in-python" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Currently in its infancy wasp-os provides nothing more than a simple
+<p>Currently in its infancy wasp-os provides only a little more than a simple
 digital clock application for <a class="reference external" href="https://www.pine64.org/pinetime/">PineTime</a>
 together with access to the MicroPython REPL for interactive testing and
 tweaking. However it keeps time well and has enough power saving
-functions implemented that it can survive for well over 24 hours between
+functions implemented that it can survive for well over 72 hours between
 charges so even at this early stage it is functional as a wearable
 timepiece.</p>
 <p>WASP includes a robust bootloader based on the Adafruit NRF52
@@ -51,6 +52,7 @@ only on BLE for updates.</p>
 </div>
 <div class="section" id="videos">
 <h2>Videos<a class="headerlink" href="#videos" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=YktiGUSRJB4"><img alt="https://img.youtube.com/vi/YktiGUSRJB4/0.jpg" src="https://img.youtube.com/vi/YktiGUSRJB4/0.jpg" />An M2 pre-release running on Pine64 PineTime</a><a class="reference external" href="https://www.youtube.com/watch?v=YktiGUSRJB4">An M2 pre-release running on Pine64 PineTime</a></p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=tuk9Nmr3Jo8"><img alt="https://img.youtube.com/vi/tuk9Nmr3Jo8/0.jpg" src="https://img.youtube.com/vi/tuk9Nmr3Jo8/0.jpg" />How to develop wasp-os python applications on a Pine64 PineTime</a><a class="reference external" href="https://www.youtube.com/watch?v=tuk9Nmr3Jo8">How to develop wasp-os python applications on a Pine64 PineTime</a></p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=kf1VHj587Mc"><img alt="https://img.youtube.com/vi/kf1VHj587Mc/0.jpg" src="https://img.youtube.com/vi/kf1VHj587Mc/0.jpg" />Developing for Pine64 PineTime using wasp-os and MicroPython</a><a class="reference external" href="https://www.youtube.com/watch?v=kf1VHj587Mc">Developing for Pine64 PineTime using wasp-os and MicroPython</a></p>
 </div>
@@ -70,12 +72,14 @@ make -j `nproc` BOARD=pinetime all
 <p>Note: <em>If you have a new PineTime then it will have been delivered with
 flash protection enabled. You must disable the flash protection before
 trying to program it.</em></p>
+<p>Use an SWD programmer to install <code class="docutils literal notranslate"><span class="pre">bootloader.hex</span></code> to the PineTime.  This
+file is an Intel HEX file containing both the bootloader and the Nordic
+SoftDevice. Be careful to disconnect cleanly from the debug software
+since just pulling out the SWD cable will mean the nRF52 will still
+believe it is being debugged (and won’t properly enter deep sleep
+modes).</p>
+<p>To install using Android device:</p>
 <ul class="simple">
-<li><p>Use an SWD programmer to install <code class="docutils literal notranslate"><span class="pre">bootloader.hex</span></code> to the PineTime.
-This file is an Intel HEX file containing both the bootloader and
-the Nordic SoftDevice. Be careful to disconnect cleanly from the
-debug software since just pulling out the SWD cable will mean the
-nRF52 will still believe it is being debugged.</p></li>
 <li><p>Copy <code class="docutils literal notranslate"><span class="pre">micropython.zip</span></code> to your Android device and download nRF Connect
 for Android if you do not already have it.</p></li>
 <li><p>In nRF Connect, choose settings and reduce the DFU packet count from
@@ -83,9 +87,15 @@ for Android if you do not already have it.</p></li>
 <li><p>Connect to PineDFU using nRFConnect, click the DFU button and send
 <code class="docutils literal notranslate"><span class="pre">micropython.zip</span></code> to the device.</p></li>
 </ul>
-<p>At the end of this process your watch will show the time (12:00) and a
-battery meter. When the watch goes into power saving mode you can use
-the side button to wake it again.</p>
+<p>To install using Linux and ota-dfu:</p>
+<ul class="simple">
+<li><p>Look up the MAC address for your watch (try: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">hcitool</span> <span class="pre">lescan</span></code>).</p></li>
+<li><p>Use ota-dfu to upload <code class="docutils literal notranslate"><span class="pre">micropython.zip</span></code> to the device. For example:
+<code class="docutils literal notranslate"><span class="pre">tools/ota-dfu/dfu.py</span> <span class="pre">-z</span> <span class="pre">micropython.zip</span> <span class="pre">-a</span> <span class="pre">A0:B1:C2:D3:E3:F5</span> <span class="pre">--legacy</span></code></p></li>
+</ul>
+<p>At the end of this process your watch will show the time (03:00) together
+with a date and battery meter. When the watch goes into power saving mode
+you can use the side button to wake it again.</p>
 <p>At this point you will also be able to use the Nordic UART Service to
 access the MicroPython REPL, although currently you must send ^C to
 interrupt the program that updates the watch display.</p>
@@ -146,7 +156,8 @@ developed, see the <a class="reference internal" href="TODO.html"><span class="d
 <li class="toctree-l2"><a class="reference internal" href="#screenshots">Screenshots</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="wasp.html">WASP Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appguide.html">Application Writer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wasp.html">WASP Reference Manual</a></li>
 <li class="toctree-l1"><a class="reference internal" href="TODO.html">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">Licensing</a></li>
 </ul>
@@ -156,7 +167,7 @@ developed, see the <a class="reference internal" href="TODO.html"><span class="d
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="index.html" title="previous chapter">Welcome to WASP-OS’s documentation!</a></li>
-      <li>Next: <a href="wasp.html" title="next chapter">WASP Internals</a></li>
+      <li>Next: <a href="appguide.html" title="next chapter">Application Writer’s Guide</a></li>
   </ul></li>
 </ul>
 </div>
@@ -186,7 +197,7 @@ developed, see the <a class="reference internal" href="TODO.html"><span class="d
       &copy;2020, Daniel Thompson.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

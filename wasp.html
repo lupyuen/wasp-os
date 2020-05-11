@@ -4,9 +4,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>WASP Internals &#8212; WASP-OS  documentation</title>
+    <title>WASP Reference Manual &#8212; WASP-OS  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
@@ -15,7 +16,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Roadmap" href="TODO.html" />
-    <link rel="prev" title="Watch Application System in Python" href="README.html" />
+    <link rel="prev" title="Application Writer’s Guide" href="appguide.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -32,8 +33,8 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="wasp-internals">
-<h1>WASP Internals<a class="headerlink" href="#wasp-internals" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="wasp-reference-manual">
+<span id="id1"></span><h1>WASP Reference Manual<a class="headerlink" href="#wasp-reference-manual" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-wasp">
 <span id="system-management"></span><h2>System management<a class="headerlink" href="#module-wasp" title="Permalink to this headline">¶</a></h2>
 <p>WASP system management (including constants)</p>
@@ -154,7 +155,7 @@ we can trigger the launcher from the default application).</p>
 
 <dl class="method">
 <dt id="wasp.Manager.register">
-<code class="sig-name descname">register</code><span class="sig-paren">(</span><em class="sig-param">app</em>, <em class="sig-param">quick_ring=True</em><span class="sig-paren">)</span><a class="headerlink" href="#wasp.Manager.register" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">register</code><span class="sig-paren">(</span><em class="sig-param">app</em>, <em class="sig-param">quick_ring=False</em><span class="sig-paren">)</span><a class="headerlink" href="#wasp.Manager.register" title="Permalink to this definition">¶</a></dt>
 <dd><p>Register an application with the system.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -428,43 +429,6 @@ information when applications crash.</p>
 
 </dd></dl>
 
-<span class="target" id="module-apps.template"></span><dl class="class">
-<dt id="apps.template.TemplateApp">
-<em class="property">class </em><code class="sig-prename descclassname">apps.template.</code><code class="sig-name descname">TemplateApp</code><a class="headerlink" href="#apps.template.TemplateApp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Template application ready to use as a basis for new applications.</p>
-<dl class="attribute">
-<dt id="apps.template.TemplateApp.ICON">
-<code class="sig-name descname">ICON</code><em class="property"> = 'Default application icon'</em><a class="headerlink" href="#apps.template.TemplateApp.ICON" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="apps.template.TemplateApp.NAME">
-<code class="sig-name descname">NAME</code><em class="property"> = 'Template'</em><a class="headerlink" href="#apps.template.TemplateApp.NAME" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="apps.template.TemplateApp.foreground">
-<code class="sig-name descname">foreground</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.template.TemplateApp.foreground" title="Permalink to this definition">¶</a></dt>
-<dd><p>Activate the application.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="apps.template.TemplateApp.press">
-<code class="sig-name descname">press</code><span class="sig-paren">(</span><em class="sig-param">button</em>, <em class="sig-param">state</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.template.TemplateApp.press" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="apps.template.TemplateApp.swipe">
-<code class="sig-name descname">swipe</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.template.TemplateApp.swipe" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="apps.template.TemplateApp.touch">
-<code class="sig-name descname">touch</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#apps.template.TemplateApp.touch" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
 <span class="target" id="module-apps.testapp"></span><dl class="class">
 <dt id="apps.testapp.TestApp">
 <em class="property">class </em><code class="sig-prename descclassname">apps.testapp.</code><code class="sig-name descname">TestApp</code><a class="headerlink" href="#apps.testapp.TestApp" title="Permalink to this definition">¶</a></dt>
@@ -478,27 +442,6 @@ information when applications crash.</p>
 <dt id="apps.testapp.TestApp.NAME">
 <code class="sig-name descname">NAME</code><em class="property"> = 'Self Test'</em><a class="headerlink" href="#apps.testapp.TestApp.NAME" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
-<dl class="method">
-<dt id="apps.testapp.TestApp.benchmark_rle">
-<code class="sig-name descname">benchmark_rle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.testapp.TestApp.benchmark_rle" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="apps.testapp.TestApp.benchmark_string">
-<code class="sig-name descname">benchmark_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.testapp.TestApp.benchmark_string" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="apps.testapp.TestApp.benchmark_wrap">
-<code class="sig-name descname">benchmark_wrap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.testapp.TestApp.benchmark_wrap" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="apps.testapp.TestApp.draw">
-<code class="sig-name descname">draw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apps.testapp.TestApp.draw" title="Permalink to this definition">¶</a></dt>
-<dd><p>Redraw the display from scratch.</p>
-</dd></dl>
 
 <dl class="method">
 <dt id="apps.testapp.TestApp.foreground">
@@ -607,6 +550,12 @@ prepare it ready to go in the event queue.</p>
 <dt id="drivers.nrf_rtc.RTC.update">
 <code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#drivers.nrf_rtc.RTC.update" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="method">
+<dt id="drivers.nrf_rtc.RTC.uptime">
+<em class="property">property </em><code class="sig-name descname">uptime</code><a class="headerlink" href="#drivers.nrf_rtc.RTC.uptime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide the current uptime in seconds.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -793,52 +742,7 @@ there is no need to “undraw” it)</p>
 
 </dd></dl>
 
-<span class="target" id="module-icons"></span><span class="target" id="module-fonts.clock"></span><span class="target" id="module-fonts.sans24"></span><dl class="function">
-<dt id="fonts.sans24.baseline">
-<code class="sig-prename descclassname">fonts.sans24.</code><code class="sig-name descname">baseline</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fonts.sans24.baseline" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="fonts.sans24.get_ch">
-<code class="sig-prename descclassname">fonts.sans24.</code><code class="sig-name descname">get_ch</code><span class="sig-paren">(</span><em class="sig-param">ch</em><span class="sig-paren">)</span><a class="headerlink" href="#fonts.sans24.get_ch" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="fonts.sans24.height">
-<code class="sig-prename descclassname">fonts.sans24.</code><code class="sig-name descname">height</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fonts.sans24.height" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="fonts.sans24.hmap">
-<code class="sig-prename descclassname">fonts.sans24.</code><code class="sig-name descname">hmap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fonts.sans24.hmap" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="fonts.sans24.max_ch">
-<code class="sig-prename descclassname">fonts.sans24.</code><code class="sig-name descname">max_ch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fonts.sans24.max_ch" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="fonts.sans24.max_width">
-<code class="sig-prename descclassname">fonts.sans24.</code><code class="sig-name descname">max_width</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fonts.sans24.max_width" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="fonts.sans24.min_ch">
-<code class="sig-prename descclassname">fonts.sans24.</code><code class="sig-name descname">min_ch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fonts.sans24.min_ch" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="fonts.sans24.monospaced">
-<code class="sig-prename descclassname">fonts.sans24.</code><code class="sig-name descname">monospaced</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fonts.sans24.monospaced" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="fonts.sans24.reverse">
-<code class="sig-prename descclassname">fonts.sans24.</code><code class="sig-name descname">reverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fonts.sans24.reverse" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<span class="target" id="module-logo"></span><span class="target" id="module-widgets"></span><dl class="class">
+<span class="target" id="module-icons"></span><span class="target" id="module-fonts.clock"></span><span class="target" id="module-fonts.sans24"></span><span class="target" id="module-logo"></span><span class="target" id="module-widgets"></span><dl class="class">
 <dt id="widgets.BatteryMeter">
 <em class="property">class </em><code class="sig-prename descclassname">widgets.</code><code class="sig-name descname">BatteryMeter</code><a class="headerlink" href="#widgets.BatteryMeter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
@@ -869,6 +773,163 @@ there is no need to “undraw” it)</p>
 </dd></dl>
 
 </div>
+<div class="section" id="bootloader">
+<h2>Bootloader<a class="headerlink" href="#bootloader" title="Permalink to this headline">¶</a></h2>
+<p>The bootloader implements a couple of protocols that allow the bootloader
+and payload to communicate during a reset or on handover from bootloader
+to application.</p>
+<div class="section" id="gpregret-protocol">
+<h3>GPREGRET protocol<a class="headerlink" href="#gpregret-protocol" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">GPREGRET</span></code> is a general purpose 8-bit retention register that is preserved
+in all power states of the nRF52 (including System OFF mode when SRAM
+content is destroyed).</p>
+<p>It can be used by the application to request specific bootloader behaviours
+during a reset:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 7%" />
+<col style="width: 71%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>Value</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>OTA_APPJUM</p></td>
+<td><p>0xb1</p></td>
+<td><p>Bootloader entered (without reset) from application.</p></td>
+</tr>
+<tr class="row-odd"><td><p>OTA_RESET</p></td>
+<td><p>0xa8</p></td>
+<td><p>Enter OTA (Bluetooth) recovery mode</p></td>
+</tr>
+<tr class="row-even"><td><p>SERIAL_ONLY_RESET</p></td>
+<td><p>0x4e</p></td>
+<td><p>Enter UART recovery mode (if applicable)</p></td>
+</tr>
+<tr class="row-odd"><td><p>UF2_RESET</p></td>
+<td><p>0x57</p></td>
+<td><p>Enter USB recovery mode (if applicable)</p></td>
+</tr>
+<tr class="row-even"><td><p>FORCE_APP_BOOT</p></td>
+<td><p>0x65</p></td>
+<td><p>Force direct application boot (no splash screen)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="pnvram-protocol">
+<h3>PNVRAM protocol<a class="headerlink" href="#pnvram-protocol" title="Permalink to this headline">¶</a></h3>
+<p>The pseudo non-volatile RAM is a small block of regular static RAM that,
+once initialized, can be used to share information.</p>
+<p>The PNVRAM starts at 0x200039c0 and is 32 bytes long.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 87%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Address</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>0x200039c0</p></td>
+<td><p>Guard value. Must be set to 0x1abe11ed .</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x200039c4</p></td>
+<td><p>Course grained RTC value (bootloader must preserve but can ignore).</p></td>
+</tr>
+<tr class="row-even"><td><p>0x200039c8</p></td>
+<td><p>RTC millisecond counter (bootloader must increment this).</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x200039cc</p></td>
+<td><p>Reserved</p></td>
+</tr>
+<tr class="row-even"><td><p>0x200039d0</p></td>
+<td><p>Reserved</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x200039d4</p></td>
+<td><p>Reserved</p></td>
+</tr>
+<tr class="row-even"><td><p>0x200039d8</p></td>
+<td><p>Reserved</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x200039cc</p></td>
+<td><p>Guard value. Must be set to 0x10adab1e .</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note: <em>The PNVRAM protocol allows up to 28 bytes to be transfered (compared to
+2 bytes via GPREGRET and GPREGRET2) but it is less versatile. For example
+FORCE_APP_BOOT cannot be implmented using PNVRAM.</em></p>
+<p>The RTC millisecond counter is incremented whenever the bootloader is
+active (during splash screen or early UART recovery mode, during an
+update). It can be consumed by the application to prevent the current
+time being lost during an update.</p>
+</div>
+</div>
+<div class="section" id="watchdog">
+<h2>Watchdog<a class="headerlink" href="#watchdog" title="Permalink to this headline">¶</a></h2>
+<p>Form-factor devices such as smart watches and fitness trackers do not usually
+have any hardware mechanism to allow the user to force a failed device into
+bootloader mode. This makes them difficult to develop on because opening the
+case to access a SWD or reset pins may compromise their waterproofing.</p>
+<p>WASP uses a watchdog timer (WDT) combined with a single hardware button in
+order to provide a robust mechanism to allow the user to force entry into a
+over-the-air firmware recovery mode that allows the buggy application to be
+replaced.</p>
+<p>The software responsibilities to implement this are split between the
+bootloader and the application, although the application responsibilities
+are intentionally minimal.</p>
+<div class="section" id="id2">
+<h3>Bootloader<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>The bootloader implements an over-the-air recovery mode, as well as handling
+normal boot, where it’s role is to display the splash screen.</p>
+<p>Additionally the bootloader implements several watchdog related features
+necessary for robust reboot handling:</p>
+<ol class="arabic simple">
+<li><p>The bootloader configures the watchdog prior to booting the main
+application. This is a simple, single channel reload request, watchdog
+with a 5 second timeout.</p></li>
+<li><p>The bootloader checks the reset reason prior too booting the main
+application. If it detects a watchdog reset the bootloader switches
+automatically to DFU mode.</p></li>
+<li><p>The bootlaoder initialized the pinmux allowing the hardware button
+state to be observed.</p></li>
+<li><p>The bootloader monitors the hardware button and switches back to the main
+application when it is pressed.</p></li>
+</ol>
+<p>From this list #1 and #2 are needed to ensure robust WDT handling whilst #3
+and # 4 ensure the user can switch back to application from the device
+itself if they ever accidentally trigger entry to recovery mode.</p>
+</div>
+<div class="section" id="application">
+<h3>Application<a class="headerlink" href="#application" title="Permalink to this headline">¶</a></h3>
+<p>The application’s role is to carefully pet the watchdog so that it will
+trigger automatically if the hardware button is held down for five
+seconds.</p>
+<p>Key points for robustness:</p>
+<ol class="arabic simple">
+<li><p>Unlike a normal watchdog we can be fairly reckless about where in the
+code we pet the dog. For example petting the dog from a timer interrupt
+is fine because we only need the dog to bark if the hardware button is
+pressed.</p></li>
+<li><p>The routine to pet the dog is predicated on the hardware button not
+being pressed.</p></li>
+<li><p>The routine to pet the dog is also predicated on the hardware button
+still being correctly configured.</p></li>
+</ol>
+<p>To avoid mistakes the application should contain no subroutines that
+unconditionally pet the dog; they should all implement #2 and #3 from
+the above list.</p>
+<p>Note: <em>nRF52 microcontrollers implement a distributed pin-muxing
+mechanism meaning most peripheral can acidentally “steal” a pin
+if the pin is requested by the peripheral. This requires a fully
+robust implementation of #3 to visit the PSEL registers of every
+peripheral that can control pins. The code currently used in
+wasp-os does not yet meet this criteria.</em></p>
+</div>
+</div>
 </div>
 
 
@@ -891,11 +952,14 @@ there is no need to “undraw” it)</p>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="README.html">Watch Application System in Python</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">WASP Internals</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="appguide.html">Application Writer’s Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WASP Reference Manual</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#module-wasp">System management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-apps.clock">Applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-drivers.battery">Device drivers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-draw565">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bootloader">Bootloader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#watchdog">Watchdog</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="TODO.html">Roadmap</a></li>
@@ -906,7 +970,7 @@ there is no need to “undraw” it)</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="README.html" title="previous chapter">Watch Application System in Python</a></li>
+      <li>Previous: <a href="appguide.html" title="previous chapter">Application Writer’s Guide</a></li>
       <li>Next: <a href="TODO.html" title="next chapter">Roadmap</a></li>
   </ul></li>
 </ul>
@@ -937,7 +1001,7 @@ there is no need to “undraw” it)</p>
       &copy;2020, Daniel Thompson.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
