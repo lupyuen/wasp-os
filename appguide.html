@@ -15,7 +15,7 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="WASP Reference Manual" href="wasp.html" />
+    <link rel="next" title="Wasp-os Reference Manual" href="wasp.html" />
     <link rel="prev" title="Watch Application System in Python" href="README.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -39,7 +39,7 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="#introduction" id="id5">Introduction</a></p>
 <ul>
-<li><p><a class="reference internal" href="#hello-world-for-wasp" id="id6">Hello World for WASP</a></p></li>
+<li><p><a class="reference internal" href="#hello-world-for-wasp-os" id="id6">Hello World for wasp-os</a></p></li>
 </ul>
 </li>
 <li><p><a class="reference internal" href="#application-life-cycle" id="id7">Application life-cycle</a></p></li>
@@ -55,7 +55,7 @@
 <li><p><a class="reference internal" href="#testing-on-the-simulator" id="id13">Testing on the simulator</a></p></li>
 <li><p><a class="reference internal" href="#testing-on-the-device" id="id14">Testing on the device</a></p></li>
 <li><p><a class="reference internal" href="#making-it-permanent" id="id15">Making it permanent</a></p></li>
-<li><p><a class="reference internal" href="#freezing-your-application-into-the-wasp-binary" id="id16">Freezing your application into the WASP binary</a></p></li>
+<li><p><a class="reference internal" href="#freezing-your-application-into-the-wasp-os-binary" id="id16">Freezing your application into the wasp-os binary</a></p></li>
 </ul>
 </li>
 <li><p><a class="reference internal" href="#application-entry-points" id="id17">Application entry points</a></p></li>
@@ -63,14 +63,14 @@
 </div>
 <div class="section" id="introduction">
 <h2><a class="toc-backref" href="#id5">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>WASP, the Watch Application System in Python, has one pervasive goal that
+<p>Wasp-os, the Watch Application System in Python, has one pervasive goal that
 influences almost everything about it, from its name to its development
 roadmap: make writing applications easy (and fun).</p>
 <p>Applications that can be loaded, changed, adapted and remixed by the user
 are what <strong>really</strong> distinguishes a smart watch from a “feature watch”<a class="footnote-reference brackets" href="#id2" id="id1">1</a>.
 In other words if we want a watch built around a tiny microcontroller to be
 sufficiently “smart” then it has to be all about the applications.</p>
-<p>This guide will help you get started writing applications for WASP. Have fun!</p>
+<p>This guide will help you get started writing applications for wasp-os. Have fun!</p>
 <dl class="footnote brackets">
 <dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>The fixed function mobile phones that existed before iOS and Android
@@ -80,9 +80,9 @@ to early Android devices but is was the application ecosystem that really
 made smart phones smart.</p>
 </dd>
 </dl>
-<div class="section" id="hello-world-for-wasp">
-<h3><a class="toc-backref" href="#id6">Hello World for WASP</a><a class="headerlink" href="#hello-world-for-wasp" title="Permalink to this headline">¶</a></h3>
-<p>Let’s start by examining a simple “Hello, World!” application for WASP.</p>
+<div class="section" id="hello-world-for-wasp-os">
+<h3><a class="toc-backref" href="#id6">Hello World for wasp-os</a><a class="headerlink" href="#hello-world-for-wasp-os" title="Permalink to this headline">¶</a></h3>
+<p>Let’s start by examining a simple “Hello, World!” application for wasp-os.</p>
 <div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -136,14 +136,14 @@ not implement <a class="reference internal" href="#apps.template.TemplateApp.bac
 for us to do!</p></li>
 <li><p>The use of <a class="reference internal" href="#apps.template.TemplateApp._draw" title="apps.template.TemplateApp._draw"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_draw()</span></code></a> is optional. We could just do
 the work in <a class="reference internal" href="#apps.template.TemplateApp.foreground" title="apps.template.TemplateApp.foreground"><code class="xref py py-meth docutils literal notranslate"><span class="pre">foreground()</span></code></a> but this application follows
-a common WASP idiom that is normally used to pattern to distinguish a full
+a common wasp-os idiom that is normally used to pattern to distinguish a full
 refresh of the screen from an fast update (a redraw).</p></li>
 </ol>
 </div>
 </div>
 <div class="section" id="application-life-cycle">
 <h2><a class="toc-backref" href="#id7">Application life-cycle</a><a class="headerlink" href="#application-life-cycle" title="Permalink to this headline">¶</a></h2>
-<p>Applications in WASP are triggered by and do all their processing
+<p>Applications in wasp-os are triggered by and do all their processing
 from calls their entry points. The entry points can be coarsely categorized
 event notifications, timer callbacks (the application tick) and
 system notifications.</p>
@@ -168,7 +168,7 @@ calls, together with the implicit application states are shown below.</p>
 <p>When an application is initialized is enters the <code class="docutils literal notranslate"><span class="pre">BACKGROUND</span></code> state. A
 backgrounded application will not execute but it should nevertheless
 maintain its user visible state whilst in the background. To conserve
-memory WASP does not permit two applications to run simultaneously but
+memory wasp-os does not permit two applications to run simultaneously but
 because each application preserves its state when in the background it will
 appear to the user as though all applications are running all the time.</p>
 <p>For example, a stopwatch application should record the time that it was started
@@ -198,9 +198,9 @@ default application when they complete an interaction.</p>
 <div class="section" id="api-primer">
 <h2><a class="toc-backref" href="#id8">API primer</a><a class="headerlink" href="#api-primer" title="Permalink to this headline">¶</a></h2>
 <p>This API primer introduces some of the most important and frequently used
-interfaces for WASP. For more comprehensive coverage see the
-<a class="reference internal" href="wasp.html#wasp-reference-manual"><span class="std std-ref">WASP Reference Manual</span></a> which contains extensive API documentation
-covering the entire of WASP, including its drivers.</p>
+interfaces for wasp-os. For more comprehensive coverage see the
+<a class="reference internal" href="wasp.html#wasp-os-reference-manual"><span class="std std-ref">Wasp-os Reference Manual</span></a> which contains extensive API documentation
+covering the entire of wasp-os, including its drivers.</p>
 <div class="section" id="system-management">
 <h3><a class="toc-backref" href="#id9">System management</a><a class="headerlink" href="#system-management" title="Permalink to this headline">¶</a></h3>
 <p>The system management API does provide a number of low-level calls that
@@ -250,8 +250,8 @@ in order to clear the display ready for a redraw.</p>
 <p>Some applications customize the above code slightly if they require a custom
 background colour and it may even be omitted entirely if the application
 explicitly draws every pixel on the display.</p>
-<p>Finally, WASP provides a small number of widgets that allow common fragments of
-logic and redrawing code to be shared between applications:</p>
+<p>Finally, wasp-os provides a small number of widgets that allow common fragments
+of logic and redrawing code to be shared between applications:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="wasp.html#widgets.BatteryMeter" title="widgets.BatteryMeter"><code class="xref py py-class docutils literal notranslate"><span class="pre">BatteryMeter</span></code></a></p></li>
 <li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ScrollingIndicator</span></code></p></li>
@@ -259,7 +259,7 @@ logic and redrawing code to be shared between applications:</p>
 </div>
 <div class="section" id="micropython">
 <h3><a class="toc-backref" href="#id11">MicroPython</a><a class="headerlink" href="#micropython" title="Permalink to this headline">¶</a></h3>
-<p>Many of the features of WASP are inherited directly from <a class="reference external" href="https://micropython.org/">MicroPython</a>. It is
+<p>Many of the features of wasp-os are inherited directly from <a class="reference external" href="https://micropython.org/">MicroPython</a>. It is
 useful to have a basic understanding of MicroPython and, in particular, put
 in a little time learning the best ways to copy with running
 <a class="reference external" href="http://docs.micropython.org/en/latest/reference/constrained.html">MicroPython on microcontrollers</a>.</p>
@@ -269,7 +269,7 @@ in a little time learning the best ways to copy with running
 <h2><a class="toc-backref" href="#id12">How to run your application</a><a class="headerlink" href="#how-to-run-your-application" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="testing-on-the-simulator">
 <h3><a class="toc-backref" href="#id13">Testing on the simulator</a><a class="headerlink" href="#testing-on-the-simulator" title="Permalink to this headline">¶</a></h3>
-<p>WASP provides a simulator that can be used to test applications before
+<p>wasp-os provides a simulator that can be used to test applications before
 downloading them to the device. The simulator is useful for ensuring the
 code is syntactically correct and that there are not major runtime problems
 (e.g. missing symbols).</p>
@@ -349,7 +349,7 @@ and ensure it gets launched during system startup.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Applications stored in external FLASH have a greater RAM overhead than
-applications that are frozen into the WASP binary. See next section for
+applications that are frozen into the wasp-os binary. See next section for
 additional details.</p>
 </div>
 <p>To copy your application to the external FLASH try:</p>
@@ -360,7 +360,7 @@ Uploading myapp.py:
 </div>
 <p>At this point your application is stored on the external FLASH but it will
 not automatically be loaded. This requires you to update the <code class="docutils literal notranslate"><span class="pre">main.py</span></code> file
-stored in the external FLASH. When WASP runs for the first time it
+stored in the external FLASH. When wasp-os runs for the first time it
 automatically generates this file (using <code class="docutils literal notranslate"><span class="pre">wasp/main.py</span></code> as a template)
 and copies it to the external FLASH. After this point <code class="docutils literal notranslate"><span class="pre">main.py</span></code> is user
 modifiable and can be used to tweak the configuration of the watch before
@@ -386,8 +386,8 @@ startup. If that happens, and you don’t know how to debug the problem, then
 you can use wasptool to restore the original version of main.py .</p>
 </div>
 </div>
-<div class="section" id="freezing-your-application-into-the-wasp-binary">
-<h3><a class="toc-backref" href="#id16">Freezing your application into the WASP binary</a><a class="headerlink" href="#freezing-your-application-into-the-wasp-binary" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="freezing-your-application-into-the-wasp-os-binary">
+<h3><a class="toc-backref" href="#id16">Freezing your application into the wasp-os binary</a><a class="headerlink" href="#freezing-your-application-into-the-wasp-os-binary" title="Permalink to this headline">¶</a></h3>
 <p>Freezing your application causes it to consume dramatically less RAM.  That is
 because the code is both pre-compiled (meaning we don’t need any RAM budget to
 run the compiler) <strong>and</strong> it can execute directly from the internal FLASH
@@ -556,7 +556,7 @@ must not be larger than 96x64.</p>
 <li class="toctree-l2"><a class="reference internal" href="#application-entry-points">Application entry points</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="wasp.html">WASP Reference Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wasp.html">Wasp-os Reference Manual</a></li>
 <li class="toctree-l1"><a class="reference internal" href="TODO.html">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">Licensing</a></li>
 </ul>
@@ -566,7 +566,7 @@ must not be larger than 96x64.</p>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="README.html" title="previous chapter">Watch Application System in Python</a></li>
-      <li>Next: <a href="wasp.html" title="next chapter">WASP Reference Manual</a></li>
+      <li>Next: <a href="wasp.html" title="next chapter">Wasp-os Reference Manual</a></li>
   </ul></li>
 </ul>
 </div>
