@@ -124,8 +124,8 @@ made smart phones smart.</p>
 </td></tr></table></div>
 <p>There are a couple of points of interest:</p>
 <ol class="arabic simple">
-<li><p>Applications have a <code class="xref py py-data docutils literal notranslate"><span class="pre">NAME</span></code>, which is shown in the
-launcher. Most applications also provide an <code class="xref py py-data docutils literal notranslate"><span class="pre">ICON</span></code>
+<li><p>Applications have a <code class="xref py py-attr docutils literal notranslate"><span class="pre">NAME</span></code>, which is shown in the
+launcher. Most applications also provide an <code class="xref py py-attr docutils literal notranslate"><span class="pre">ICON</span></code>
 but a default is displayed if this is omitted.</p></li>
 <li><p>This example uses <a class="reference internal" href="#apps.template.TemplateApp.__init__" title="apps.template.TemplateApp.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> to initialize
 the state of the application, this ensure the state remains “sticky”
@@ -188,9 +188,12 @@ is waking up and that it may update the screen if needed.</p>
 can also return False from <a class="reference internal" href="#apps.template.TemplateApp.sleep" title="apps.template.TemplateApp.sleep"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sleep()</span></code></a> if this is preferred.
 In this case the system manager will automatically return to the default
 application, typically the main clock face.</p>
-<p>Note: <em>Most applications do not need to support sleep() since it is often
-a better user experience for the watch to return to the default application
-when they complete an interaction.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Most applications do not need to support <a class="reference internal" href="#apps.template.TemplateApp.sleep" title="apps.template.TemplateApp.sleep"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sleep()</span></code></a>
+since it is often a better user experience for the watch to return to the
+default application when they complete an interaction.</p>
+</div>
 </div>
 <div class="section" id="api-primer">
 <h2><a class="toc-backref" href="#id8">API primer</a><a class="headerlink" href="#api-primer" title="Permalink to this headline">¶</a></h2>
@@ -270,9 +273,12 @@ in a little time learning the best ways to copy with running
 downloading them to the device. The simulator is useful for ensuring the
 code is syntactically correct and that there are not major runtime problems
 (e.g. missing symbols).</p>
-<p>Note: <em>The simulator does not model the RAM or code size limits of the
-real device. It may still be necessary to tune the application for minimal
-footprint after testing on the simulator.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The simulator does not model the RAM or code size limits of the real
+device. It may still be necessary to tune the application for minimal
+footprint after testing on the simulator.</p>
+</div>
 <p>Firstly launch the simulator:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sh$ make sim
 <span class="nv">PYTHONDONTWRITEBYTECODE</span><span class="o">=</span><span class="m">1</span> <span class="nv">PYTHONPATH</span><span class="o">=</span>.:wasp/boards/simulator:wasp <span class="se">\\</span>
@@ -327,9 +333,12 @@ Preparing to run myapp.py:
 <p>Like the simulator, when an application is registered it does not start
 automatically but it will have been added to the launcher and can be launched
 using the normal gestures to control the device.</p>
-<p>Note: <em>If the progress bar jams at the same point each time then it is likely
-your application is too large to be compiled on the target. You may have to
-adopt the frozen module approach from the next section.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the progress bar jams at the same point each time then it is likely your
+application is too large to be compiled on the target. You may have to
+adopt the frozen module approach from the next section.</p>
+</div>
 </div>
 <div class="section" id="making-it-permanent">
 <h3><a class="toc-backref" href="#id15">Making it permanent</a><a class="headerlink" href="#making-it-permanent" title="Permalink to this headline">¶</a></h3>
@@ -337,9 +346,12 @@ adopt the frozen module approach from the next section.</em></p>
 button for around five seconds until the splash screen is seen, wait
 five seconds and then press again) then we must copy it to the device
 and ensure it gets launched during system startup.</p>
-<p>Note: <em>Applications stored in external FLASH have a greater RAM overhead
-than applications that are frozen into the WASP binary. See next section
-for additional details.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Applications stored in external FLASH have a greater RAM overhead than
+applications that are frozen into the WASP binary. See next section for
+additional details.</p>
+</div>
 <p>To copy your application to the external FLASH try:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sh$ ./tools/wasptool --upload myapp.py
 Uploading myapp.py:
@@ -366,11 +378,13 @@ Uploading wasp/main.py:
 <span class="o">[</span><span class="c1">##################################################] 100%</span>
 </pre></div>
 </div>
-<p>Note: <em>If the new code on the watch throws an exception (including
-an out-of-memory exception) then your watch will display a black
-screen at startup. If that happens, and you don’t know how to debug
-the problem, then you can use wasptool to restore the original version
-of main.py .</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the new code on the watch throws an exception (including an
+out-of-memory exception) then your watch will display a black screen at
+startup. If that happens, and you don’t know how to debug the problem, then
+you can use wasptool to restore the original version of main.py .</p>
+</div>
 </div>
 <div class="section" id="freezing-your-application-into-the-wasp-binary">
 <h3><a class="toc-backref" href="#id16">Freezing your application into the WASP binary</a><a class="headerlink" href="#freezing-your-application-into-the-wasp-binary" title="Permalink to this headline">¶</a></h3>
@@ -383,9 +397,21 @@ file for your board (e.g. <code class="docutils literal notranslate"><span class
 your application and then the whole binary must be re-compiled as normal.</p>
 <p>After that you an use the same technique described in the previous
 section to add an import and register for you application to <code class="docutils literal notranslate"><span class="pre">main.py</span></code></p>
-<p>Note: <em>The micropython import path “prefers” frozen modules to those
-found in the external filesystem. If your application is both frozen and
-copied to external FLASH then the frozen version will be loaded.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The micropython import path “prefers” frozen modules to those found in the
+external filesystem. If your application is both frozen and copied to
+external FLASH then the frozen version will be loaded.</p>
+<p>In many cases it is possible to avoid rebuilding the binary in order to
+test new features by parsing the code in the global namespace and then
+patching it into the existing code. For example the following can be used
+to adopt a new version of the CST816S driver:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>./tools/wasptool\
+    --exec wasp/drivers/cst816s.py\
+    --eval &quot;watch.touch = CST816S(watch.i2c)&quot;`
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="application-entry-points">
