@@ -1,0 +1,32 @@
+[
+	{
+		"path": "$ROOTPATH$/README.rst",
+		"bookmarks": [
+			{
+				"line": 60,
+				"column": 21,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/ports/nrf/README.md",
+		"bookmarks": [
+			{
+				"line": 0,
+				"column": 40,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/mpy-cross/mpconfigport.h",
+		"bookmarks": [
+			{
+				"line": 124,
+				"column": 13,
+				"label": ""
+			}
+		]
+	}
+]
