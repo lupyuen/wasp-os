@@ -20,11 +20,176 @@
 		]
 	},
 	{
+		"path": "$ROOTPATH$/micropython/ports/nrf/mpconfigport.h",
+		"bookmarks": [
+			{
+				"line": 26,
+				"column": 18,
+				"label": ""
+			}
+		]
+	},
+	{
 		"path": "$ROOTPATH$/micropython/mpy-cross/mpconfigport.h",
 		"bookmarks": [
 			{
 				"line": 124,
 				"column": 13,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/py/nlr.h",
+		"bookmarks": [
+			{
+				"line": 32,
+				"column": 7,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/py/malloc.c",
+		"bookmarks": [
+			{
+				"line": 26,
+				"column": 24,
+				"label": ""
+			},
+			{
+				"line": 27,
+				"column": 23,
+				"label": ""
+			},
+			{
+				"line": 28,
+				"column": 17,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/py/gc.c",
+		"bookmarks": [
+			{
+				"line": 27,
+				"column": 15,
+				"label": ""
+			},
+			{
+				"line": 28,
+				"column": 16,
+				"label": ""
+			},
+			{
+				"line": 29,
+				"column": 14,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/py/pystack.c",
+		"bookmarks": [
+			{
+				"line": 26,
+				"column": 16,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/py/qstr.c",
+		"bookmarks": [
+			{
+				"line": 26,
+				"column": 16,
+				"label": ""
+			},
+			{
+				"line": 27,
+				"column": 14,
+				"label": ""
+			},
+			{
+				"line": 28,
+				"column": 13,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/py/vstr.c",
+		"bookmarks": [
+			{
+				"line": 27,
+				"column": 16,
+				"label": ""
+			},
+			{
+				"line": 28,
+				"column": 14,
+				"label": ""
+			},
+			{
+				"line": 29,
+				"column": 13,
+				"label": ""
+			},
+			{
+				"line": 30,
+				"column": 14,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/py/mpprint.c",
+		"bookmarks": [
+			{
+				"line": 26,
+				"column": 15,
+				"label": ""
+			},
+			{
+				"line": 27,
+				"column": 15,
+				"label": ""
+			},
+			{
+				"line": 28,
+				"column": 16,
+				"label": ""
+			},
+			{
+				"line": 29,
+				"column": 15,
+				"label": ""
+			},
+			{
+				"line": 30,
+				"column": 15,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/py/persistentcode.c",
+		"bookmarks": [
+			{
+				"line": 835,
+				"column": 23,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/mpy-cross/main.c",
+		"bookmarks": [
+			{
+				"line": 340,
+				"column": 25,
 				"label": ""
 			}
 		]
