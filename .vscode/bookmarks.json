@@ -14,7 +14,7 @@
 		"bookmarks": [
 			{
 				"line": 0,
-				"column": 40,
+				"column": 7,
 				"label": ""
 			}
 		]
@@ -24,7 +24,7 @@
 		"bookmarks": [
 			{
 				"line": 26,
-				"column": 18,
+				"column": 21,
 				"label": ""
 			}
 		]
@@ -200,6 +200,76 @@
 			{
 				"line": 37,
 				"column": 4,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/ports/zephyr/README.md",
+		"bookmarks": [
+			{
+				"line": 0,
+				"column": 4,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/ports/nrf/mphalport.h",
+		"bookmarks": [
+			{
+				"line": 26,
+				"column": 12,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/ports/mynewt/README.md",
+		"bookmarks": [
+			{
+				"line": 0,
+				"column": 9,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/ports/mynewt/mpconfigport.h",
+		"bookmarks": [
+			{
+				"line": 2,
+				"column": 19,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/ports/mynewt/mphalport.h",
+		"bookmarks": [
+			{
+				"line": 0,
+				"column": 16,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/ports/mynewt/qstrdefsport.h",
+		"bookmarks": [
+			{
+				"line": 0,
+				"column": 10,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/ports/nrf/qstrdefsport.h",
+		"bookmarks": [
+			{
+				"line": 26,
+				"column": 12,
 				"label": ""
 			}
 		]
