@@ -273,5 +273,25 @@
 				"label": ""
 			}
 		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/ports/mynewt/boards/pinetime/mpconfigboard.h",
+		"bookmarks": [
+			{
+				"line": 26,
+				"column": 16,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/ports/mynewt/boards/pinetime/mpconfigboard.mk",
+		"bookmarks": [
+			{
+				"line": 4,
+				"column": 5,
+				"label": ""
+			}
+		]
 	}
 ]
