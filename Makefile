@@ -35,7 +35,7 @@ softdevice:
 	micropython/ports/nrf/drivers/bluetooth/download_ble_stack.sh
 
 micropython: wasp/boards/pinetime/watch.py
-	$(MAKE) -C micropython/mpy-cross
+	#### TODO $(MAKE) -C micropython/mpy-cross
 	$(RM) micropython/ports/nrf/build-$(BOARD)-s132/frozen_content.c
 	$(MAKE) -C micropython/ports/nrf \
 		BOARD=$(BOARD) SD=s132 \

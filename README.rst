@@ -1,3 +1,7 @@
+TODO
+
+clear; make -j `nproc` BOARD=pinetime V=1 micropython
+
 Watch Application System in Python
 ==================================
 

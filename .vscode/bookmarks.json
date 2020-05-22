@@ -3,7 +3,7 @@
 		"path": "$ROOTPATH$/README.rst",
 		"bookmarks": [
 			{
-				"line": 60,
+				"line": 64,
 				"column": 21,
 				"label": ""
 			}
@@ -190,6 +190,16 @@
 			{
 				"line": 340,
 				"column": 25,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/Makefile",
+		"bookmarks": [
+			{
+				"line": 37,
+				"column": 4,
 				"label": ""
 			}
 		]
