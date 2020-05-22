@@ -1,4 +1,4 @@
-TODO: Migrating wasp-os for PineTime to NimBLE Bluetooth Stack and MCU Manager
+TODO: Migrating wasp-os for PineTime to NimBLE Bluetooth Stack and MCU Manager Firmware Update
 
 .. code-block:: sh
 
