@@ -3,7 +3,7 @@
 	url = https://github.com/daniel-thompson/wasp-bootloader
 [submodule "micropython"]
 	path = micropython
-	url = https://github.com/daniel-thompson/micropython
+	url = https://github.com/AppKaki/micropython
 [submodule "tools/intelhex"]
 	path = tools/intelhex
 	url = https://github.com/python-intelhex/intelhex
