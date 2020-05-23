@@ -40,14 +40,14 @@
                 "command": "cmd",
                 "args": [
                     "/c",
-                    " make -j `nproc` BOARD=pinetime V=1 micropython && echo ✅ ◾ ️Done! "
+                    " make -j 1 BOARD=pinetime V=1 micropython && echo ✅ ◾ ️Done! "
                 ]
             },
             "osx": {
                 "command": "bash",
                 "args": [
                     "-c", "-l",
-                    " make -j `nproc` BOARD=pinetime V=1 micropython && echo ✅ ◾ ️Done! "
+                    " make -j 1 BOARD=pinetime V=1 micropython && echo ✅ ◾ ️Done! "
                 ],
             },
             "linux": {
