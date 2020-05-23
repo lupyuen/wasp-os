@@ -266,26 +266,27 @@
             "label": "🗑 Clean",
             "type": "shell",
             "windows": {
+                // Previously: " newt\\newt.exe clean -v all && rd /q /s target && echo ✅ ◾ ️Done!"
                 "command": "cmd",
                 "args": [
                     "/c",
-                    " newt\\newt.exe clean -v all && rd /q /s target && echo ✅ ◾ ️Done!"
+                    " make clean BOARD=pinetime V=1 && echo ✅ ◾ ️Done! "
                 ]
             },
             "osx": {
-                // Previously: " newt load -v bluepill_my_sensor && echo '**** Done!' "
+                // Previously: " newt clean -v all && rm -r target ; echo ✅ ◾ ️Done! "
                 "command": "bash",
                 "args": [
                     "-c", "-l",
-                    " newt clean -v all && rm -r target ; echo ✅ ◾ ️Done! "
+                    " make clean BOARD=pinetime V=1 && echo ✅ ◾ ️Done! "
                 ],
             },
             "linux": {
-                // Previously: " newt load -v bluepill_my_sensor && echo '**** Done!' "
+                // Previously: " newt clean -v all && rm -r target ; echo ✅ ◾ ️Done! "
                 "command": "bash",
                 "args": [
                     "-c", "-l",
-                    " newt clean -v all && rm -r target ; echo ✅ ◾ ️Done! "
+                    " make clean BOARD=pinetime V=1 && echo ✅ ◾ ️Done! "
                 ],
             },
             "problemMatcher": [],
