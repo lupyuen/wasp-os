@@ -47,14 +47,14 @@
                 "command": "bash",
                 "args": [
                     "-c", "-l",
-                    " make -j 1 BOARD=pinetime V=1 micropython && echo ✅ ◾ ️Done! "
+                    " export BUILD_VERBOSE=1 && make -j 1 BOARD=pinetime micropython && echo ✅ ◾ ️Done! "
                 ],
             },
             "linux": {
                 "command": "bash",
                 "args": [
                     "-c", "-l",
-                    " make -j `nproc` BOARD=pinetime V=1 micropython && echo ✅ ◾ ️Done! "
+                    " export BUILD_VERBOSE=1 && make -j `nproc` BOARD=pinetime micropython && echo ✅ ◾ ️Done! "
                 ],
             },
             "group": {

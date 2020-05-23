@@ -293,5 +293,15 @@
 				"label": ""
 			}
 		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/ports/mynewt/Makefile",
+		"bookmarks": [
+			{
+				"line": 2,
+				"column": 12,
+				"label": ""
+			}
+		]
 	}
 ]
