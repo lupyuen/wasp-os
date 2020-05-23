@@ -36,7 +36,7 @@ softdevice:
 
 micropython: wasp/boards/pinetime/watch.py
 	#### TODO $(MAKE) -C micropython/mpy-cross
-	$(RM) micropython/ports/nrf/build-$(BOARD)-s132/frozen_content.c
+	$(RM) micropython/ports/nrf/build-$(BOARD)/frozen_content.c
 	$(MAKE) -C micropython/ports/mynewt \
 		BOARD=$(BOARD) \
 		MICROPY_VFS_LFS2=1 \
