@@ -37,14 +37,14 @@ softdevice:
 micropython: wasp/boards/pinetime/watch.py
 	#### TODO $(MAKE) -C micropython/mpy-cross
 	$(RM) micropython/ports/nrf/build-$(BOARD)-s132/frozen_content.c
-	$(MAKE) -C micropython/ports/nrf \
-		BOARD=$(BOARD) SD=s132 \
+	$(MAKE) -C micropython/ports/mynewt \
+		BOARD=$(BOARD) \
 		MICROPY_VFS_LFS2=1 \
 		FROZEN_MANIFEST=$(PWD)/wasp/boards/$(BOARD)/manifest.py
-	python3 -m nordicsemi dfu genpkg \
-		--dev-type 0x0052 \
-		--application micropython/ports/nrf/build-$(BOARD)-s132/firmware.hex \
-		micropython.zip
+	# python3 -m nordicsemi dfu genpkg \
+	#	--dev-type 0x0052 \
+	#	--application micropython/ports/nrf/build-$(BOARD)-s132/firmware.hex \
+	#	micropython.zip
 
 wasp/boards/pinetime/watch.py : wasp/boards/pinetime/watch.py.in
 	(cd wasp; ../tools/preprocess.py boards/pinetime/watch.py.in > \
