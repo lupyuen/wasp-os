@@ -71,6 +71,7 @@
                 "MICROPY_MODULE_FROZEN_STR",
                 "MICROPY_QSTR_EXTRA_POOL=mp_qstr_frozen_const_pool",
                 "MICROPY_MODULE_FROZEN_MPY",
+                "MICROPY_PY_MACHINE_I2C",
                 "APP_NAME=my_sensor_app",
                 "APP_my_sensor_app",
                 "ARCH_NAME=cortex_m3",
