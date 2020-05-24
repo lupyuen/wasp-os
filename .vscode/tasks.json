@@ -63,16 +63,16 @@
             },
             "problemMatcher": [ 
                 {
-                    //  Problem matcher for GNU Linker, e.g. /Users/Luppy/mynewt/stm32bluepill-mynewt-sensor/apps/my_sensor_app/src/ATParser.h:82: undefined reference to `operator delete[](void*)'
-                    "fileLocation": [ "absolute" ],
+                    //  Problem matcher for GNU Linker, e.g. ../../lib/nrfx/drivers/src/prs/nrfx_prs.c:38:10: fatal error: nrfx_log.h: No such file or directory
+                    "fileLocation": ["relative", "${workspaceFolder}/micropython/ports/mynewt" ],
                     "pattern": {
-                        "regexp": "^(/.*):(\\d+):\\s+(.*)$",
+                        "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error|fatal error):\\s+(.*)$",
                         "file": 1,
                         "line": 2,
-                        "message": 3,
-                        // "code": 3,
-                        // "severity": 4,
-                    }                    
+                        "column": 3,
+                        "severity": 4,
+                        "message": 5
+                    }                   
                 }
             ],
             "presentation": {
