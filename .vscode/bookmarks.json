@@ -303,5 +303,25 @@
 				"label": ""
 			}
 		]
+	},
+	{
+		"path": "$ROOTPATH$/micropython/ports/mynewt/modules/machine/pin.c",
+		"bookmarks": [
+			{
+				"line": 114,
+				"column": 26,
+				"label": ""
+			},
+			{
+				"line": 500,
+				"column": 20,
+				"label": ""
+			},
+			{
+				"line": 532,
+				"column": 41,
+				"label": ""
+			}
+		]
 	}
 ]
