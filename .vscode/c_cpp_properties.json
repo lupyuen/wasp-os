@@ -4,6 +4,7 @@
             "name": "Mynewt",
             "includePath": [
                 "${workspaceFolder}/micropython",
+                "${workspaceFolder}/micropython/lib/nrfx/hal",
                 "${workspaceFolder}/micropython/ports/mynewt",
                 "${workspaceFolder}/micropython/ports/mynewt/modules/machine",
                 "${workspaceFolder}/../pinetime-rust-mynewt/bin/targets/nrf52_my_sensor/generated/include",
@@ -54,6 +55,22 @@
                 "${workspaceFolder}/../pinetime-rust-mynewt/libs/sensor_network/include"
             ],
             "defines": [
+                "NRF52832_XXAA",
+                "NRF52",
+                "NRF52832",
+                "CONFIG_GPIO_AS_PINRESET",
+                "FFCONF_H=\"lib/oofatfs/ffconf.h\"",
+                "MICROPY_VFS_LFS2=1",
+                "LFS2_NO_MALLOC",
+                "LFS2_NO_DEBUG",
+                "LFS2_NO_WARN",
+                "LFS2_NO_ERROR",
+                "LFS2_NO_ASSERT",
+                "NRF5_HAL_H='<nrf52_hal.h>'",
+                "NDEBUG",
+                "MICROPY_MODULE_FROZEN_STR",
+                "MICROPY_QSTR_EXTRA_POOL=mp_qstr_frozen_const_pool",
+                "MICROPY_MODULE_FROZEN_MPY",
                 "APP_NAME=my_sensor_app",
                 "APP_my_sensor_app",
                 "ARCH_NAME=cortex_m3",
@@ -64,7 +81,6 @@
                 "MCUBOOT_HAVE_LOGGING=1",
                 "MYNEWT=1",
                 "SECURE=0",
-                "STM32F103xB",
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"

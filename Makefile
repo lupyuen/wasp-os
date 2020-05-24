@@ -9,7 +9,7 @@ clean :
 		bootloader/_build-$(BOARD)_nrf52832 \
 		reloader/build-$(BOARD) reloader/src/boards/$(BOARD)/bootloader.h \
 		micropython/mpy-cross/build \
-		micropython/ports/nrf/build-$(BOARD)-s132
+		micropython/ports/mynewt/build-$(BOARD)
 
 submodules :
 	git submodule update --init --recursive
@@ -31,20 +31,13 @@ reloader: bootloader
 	$(MAKE) -C reloader/ BOARD=$(BOARD)
 	mv reloader/build-$(BOARD)/reloader.zip .
 
-softdevice:
-	micropython/ports/nrf/drivers/bluetooth/download_ble_stack.sh
-
 micropython: wasp/boards/pinetime/watch.py
-	#### TODO $(MAKE) -C micropython/mpy-cross
-	$(RM) micropython/ports/nrf/build-$(BOARD)/frozen_content.c
+	$(MAKE) -C micropython/mpy-cross
+	$(RM) micropython/ports/mynewt/build-$(BOARD)/frozen_content.c
 	$(MAKE) -C micropython/ports/mynewt \
 		BOARD=$(BOARD) \
 		MICROPY_VFS_LFS2=1 \
 		FROZEN_MANIFEST=$(PWD)/wasp/boards/$(BOARD)/manifest.py
-	# python3 -m nordicsemi dfu genpkg \
-	#	--dev-type 0x0052 \
-	#	--application micropython/ports/nrf/build-$(BOARD)-s132/firmware.hex \
-	#	micropython.zip
 
 wasp/boards/pinetime/watch.py : wasp/boards/pinetime/watch.py.in
 	(cd wasp; ../tools/preprocess.py boards/pinetime/watch.py.in > \
@@ -76,4 +69,3 @@ sim:
 	python3 -i wasp/main.py
 
 .PHONY: bootloader reloader docs micropython
-
