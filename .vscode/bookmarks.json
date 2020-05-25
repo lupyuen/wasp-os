@@ -308,17 +308,17 @@
 		"path": "$ROOTPATH$/micropython/ports/mynewt/modules/machine/pin.c",
 		"bookmarks": [
 			{
-				"line": 114,
+				"line": 115,
 				"column": 26,
 				"label": ""
 			},
 			{
-				"line": 500,
+				"line": 501,
 				"column": 20,
 				"label": ""
 			},
 			{
-				"line": 532,
+				"line": 534,
 				"column": 41,
 				"label": ""
 			}
